@@ -1,0 +1,1221 @@
+/* Reset and base styles for cross-browser compatibility */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 16px;
+    -webkit-text-size-adjust: 100%;
+    -ms-text-size-adjust: 100%;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+    line-height: 1.6;
+    color: #fff;
+    background-color: #000000;
+    overflow-x: hidden;
+}
+
+/* Header Styles */
+.header {
+    height: 51px;
+    width: 100%;
+    background-color: transparent;
+    border-bottom: 1px solid #ffffff;
+    position: relative;
+    z-index: 100;
+    padding: 0 16px;
+    box-sizing: border-box;
+}
+
+/* Logo Styles */
+.logo {
+    width: 36px;
+    height: 36px;
+    position: absolute;
+    left: 16px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.logo svg {
+    width: 36px;
+    height: 36px;
+    display: block;
+    margin: 0;
+    padding: 0;
+}
+
+/* Hamburger Menu Styles */
+.hamburger-menu {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 16.667px;
+    height: 25.433px; /* 1.811px * 3 lines + 10px * 2 gaps */
+    position: absolute;
+    right: 16px;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+}
+
+.hamburger-line {
+    width: 16.667px;
+    height: 1.811px;
+    background-color: #ffffff;
+    margin: 0;
+    padding: 0;
+    display: block;
+    flex-shrink: 0;
+}
+
+.hamburger-line:not(:last-child) {
+    margin-bottom: 10px;
+}
+
+/* Hamburger Dropdown Menu */
+.hamburger-dropdown {
+    display: none;
+    position: absolute;
+    top: 100%;
+    right: 0;
+    background-color: #1a1a1a;
+    border: 1px solid #333;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    z-index: 1000;
+    min-width: 120px;
+    padding: 8px 0;
+    margin-top: 5px;
+}
+
+.hamburger-dropdown.show {
+    display: block;
+}
+
+.logout-button {
+    width: 100%;
+    background: none;
+    border: none;
+    color: #FFF;
+    font-family: Monaco, monospace;
+    font-size: 14px;
+    font-weight: 400;
+    padding: 12px 16px;
+    cursor: pointer;
+    text-align: left;
+    transition: background-color 0.3s ease;
+}
+
+.logout-button:hover {
+    background-color: #333;
+}
+
+/* Container Styles */
+.container {
+    width: 342px;
+    height: 50px;
+    flex-shrink: 0;
+    border-radius: 15px;
+    background: #FFF;
+    margin: 20px auto 0 auto;
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    padding: 0 16px;
+}
+
+/* Agent Container Styles */
+.agent-container {
+    margin-top: 25px;
+}
+
+/* Separator Line Styles */
+.separator-line {
+    width: 375px;
+    height: 1px;
+    background: #FFF;
+    margin: 25px auto 0 auto;
+}
+
+/* Projects Text Styles */
+.projects-text {
+    color: #FFF;
+    font-family: Monaco, monospace;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    margin: 25px auto 0 auto;
+    text-align: center;
+}
+
+/* Filter Buttons Container */
+.filter-buttons-container {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin: 25px auto 0 auto;
+}
+
+/* Filter Button Styles */
+.filter-button {
+    width: 100px;
+    height: 25px;
+    flex-shrink: 0;
+    border-radius: 5px;
+    background: #FFF;
+    border: none;
+    color: #000;
+    font-family: Monaco, monospace;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.filter-button.active {
+    background: #FF5E00;
+    color: #FFF;
+}
+
+.filter-button:hover {
+    opacity: 0.8;
+}
+
+.container-text {
+    color: #000;
+    font-family: Monaco, monospace;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
+/* Add Button Styles */
+.add-button {
+    width: 32px;
+    height: 32px;
+    flex-shrink: 0;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    position: relative;
+    margin-left: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.add-button svg {
+    width: 32px;
+    height: 32px;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.add-button-text {
+    color: #000;
+    font-family: Monaco, monospace;
+    font-size: 30px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    position: relative;
+    z-index: 1;
+    margin: 0;
+    padding: 0;
+    transform: translateY(-2px);
+}
+
+/* Project Name Page Styles */
+.project-name-container {
+    margin: 16px auto 0 auto;
+    text-align: center;
+}
+
+.project-name-text {
+    color: #FFF;
+    font-family: Monaco, monospace;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    margin: 0;
+    padding: 0;
+}
+
+/* Next Page Styles */
+.next-page-container {
+    margin: 16px auto 0 auto;
+    text-align: center;
+}
+
+.next-page-text {
+    color: #FFF;
+    font-family: Monaco, monospace;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    margin: 0;
+    padding: 0;
+}
+
+/* Text Container Styles */
+.text-container {
+    width: 342px;
+    height: 50px;
+    flex-shrink: 0;
+    border-radius: 15px;
+    background: #FFF;
+    margin: 16px auto 0 auto;
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    padding: 0 16px;
+}
+
+.text-input {
+    width: 100%;
+    height: 100%;
+    border: none;
+    outline: none;
+    background: transparent;
+    font-family: Monaco, monospace;
+    font-size: 16px;
+    color: #000;
+    margin: 0;
+    padding: 0;
+}
+
+.text-input::placeholder {
+    color: #999;
+    font-family: Monaco, monospace;
+    font-size: 16px;
+}
+
+/* Next Button Styles */
+.next-button {
+    width: 150px;
+    height: 50px;
+    flex-shrink: 0;
+    border-radius: 15px;
+    background: #FF5E00;
+    border: none;
+    cursor: pointer;
+    margin: 20px auto 0 auto;
+    display: block;
+    box-sizing: border-box;
+}
+
+.next-button {
+    color: #FFF;
+    font-family: Monaco, monospace;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
+/* Back Button Styles */
+.back-button {
+    width: 32px;
+    height: 32px;
+    flex-shrink: 0;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    position: absolute;
+    left: 16px;
+    top: 68px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.back-button svg {
+    width: 32px;
+    height: 32px;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.back-button-text {
+    color: #FFF;
+    font-family: Monaco, monospace;
+    font-size: 30px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    position: relative;
+    z-index: 1;
+    margin: 0;
+    padding: 0;
+    transform: translateY(-2px);
+}
+
+/* Enhanced Responsive Design */
+
+/* Mobile First Approach - Base styles for mobile */
+@media screen and (max-width: 480px) {
+    /* Very small mobile devices */
+    .header {
+        height: 51px;
+        padding: 0 12px;
+    }
+    
+    .logo {
+        width: 32px;
+        height: 32px;
+        left: 12px;
+    }
+    
+    .logo svg {
+        width: 32px;
+        height: 32px;
+    }
+    
+    .hamburger-menu {
+        width: 14px;
+        height: 20px;
+        right: 12px;
+    }
+    
+    .hamburger-line {
+        width: 14px;
+        height: 1.5px;
+    }
+    
+    .container {
+        width: calc(100% - 24px);
+        margin: 16px 12px 0 12px;
+        height: 45px;
+    }
+    
+    .container-text {
+        font-size: 16px;
+    }
+    
+    .text-container {
+        width: calc(100% - 24px);
+        margin: 16px 12px 0 12px;
+        height: 45px;
+    }
+    
+    .text-input {
+        font-size: 14px;
+    }
+    
+    .text-input::placeholder {
+        font-size: 14px;
+    }
+    
+    .project-name-text {
+        font-size: 18px;
+    }
+    
+    .next-page-text {
+        font-size: 18px;
+    }
+    
+    .next-button {
+        width: calc(100% - 24px);
+        margin: 16px 12px 0 12px;
+        height: 45px;
+        font-size: 16px;
+    }
+    
+    .back-button {
+        left: 12px;
+        top: 60px;
+        width: 28px;
+        height: 28px;
+    }
+    
+    .back-button svg {
+        width: 28px;
+        height: 28px;
+    }
+    
+    .back-button-text {
+        font-size: 24px;
+    }
+    
+    .add-button {
+        width: 28px;
+        height: 28px;
+    }
+    
+    .add-button svg {
+        width: 28px;
+        height: 28px;
+    }
+    
+    .add-button-text {
+        font-size: 24px;
+    }
+    
+    /* Responsive styles for upload containers */
+    .responsive-container {
+        width: calc(100% - 24px) !important;
+        max-width: 342px;
+        margin-left: auto !important;
+        margin-right: auto !important;
+    }
+    
+    .responsive-text {
+        font-size: 16px !important;
+    }
+    
+    .responsive-button {
+        width: 120px !important;
+        height: 40px !important;
+        font-size: 16px !important;
+    }
+    
+    .responsive-icon {
+        width: 48px !important;
+        height: 48px !important;
+    }
+    
+    .responsive-upload-container {
+        height: 160px !important;
+    }
+    
+    .responsive-header-text {
+        font-size: 16px !important;
+        height: 40px !important;
+    }
+}
+
+@media screen and (min-width: 481px) and (max-width: 767px) {
+    /* Small to medium mobile devices */
+    .header {
+        height: 51px;
+        padding: 0 16px;
+    }
+    
+    .logo {
+        width: 36px;
+        height: 36px;
+        left: 16px;
+    }
+    
+    .logo svg {
+        width: 36px;
+        height: 36px;
+    }
+    
+    .hamburger-menu {
+        width: 16px;
+        height: 24px;
+        right: 16px;
+    }
+    
+    .hamburger-line {
+        width: 16px;
+        height: 1.8px;
+    }
+    
+    .container {
+        width: 90%;
+        max-width: 342px;
+        height: 50px;
+    }
+    
+    .container-text {
+        font-size: 18px;
+    }
+    
+    .text-container {
+        width: 90%;
+        max-width: 342px;
+        height: 50px;
+    }
+    
+    .text-input {
+        font-size: 16px;
+    }
+    
+    .text-input::placeholder {
+        font-size: 16px;
+    }
+    
+    .project-name-text {
+        font-size: 22px;
+    }
+    
+    .next-page-text {
+        font-size: 22px;
+    }
+    
+    .next-button {
+        width: 90%;
+        max-width: 150px;
+        height: 50px;
+        font-size: 18px;
+    }
+    
+    .back-button {
+        left: 16px;
+        top: 68px;
+        width: 32px;
+        height: 32px;
+    }
+    
+    .back-button svg {
+        width: 32px;
+        height: 32px;
+    }
+    
+    .back-button-text {
+        font-size: 28px;
+    }
+    
+    .add-button {
+        width: 32px;
+        height: 32px;
+    }
+    
+    .add-button svg {
+        width: 32px;
+        height: 32px;
+    }
+    
+    .add-button-text {
+        font-size: 28px;
+    }
+    
+    /* Responsive styles for upload containers */
+    .responsive-container {
+        width: 90% !important;
+        max-width: 342px;
+        margin-left: auto !important;
+        margin-right: auto !important;
+    }
+    
+    .responsive-text {
+        font-size: 18px !important;
+    }
+    
+    .responsive-button {
+        width: 130px !important;
+        height: 45px !important;
+        font-size: 18px !important;
+    }
+    
+    .responsive-icon {
+        width: 56px !important;
+        height: 56px !important;
+    }
+    
+    .responsive-upload-container {
+        height: 180px !important;
+    }
+    
+    .responsive-header-text {
+        font-size: 18px !important;
+        height: 45px !important;
+    }
+}
+
+@media screen and (min-width: 768px) and (max-width: 1023px) {
+    /* Tablets */
+    .header {
+        height: 60px;
+        padding: 0 24px;
+    }
+    
+    .logo {
+        width: 40px;
+        height: 40px;
+    }
+    
+    .logo svg {
+        width: 40px;
+        height: 40px;
+    }
+    
+    .hamburger-menu {
+        width: 18px;
+        height: 48px;
+    }
+    
+    .hamburger-line {
+        width: 18px;
+        height: 2px;
+    }
+    
+    .container {
+        width: 400px;
+        height: 55px;
+    }
+    
+    .text-container {
+        width: 400px;
+        height: 55px;
+    }
+    
+    .project-name-text {
+        font-size: 28px;
+    }
+    
+    .text-input {
+        font-size: 18px;
+    }
+    
+    .text-input::placeholder {
+        font-size: 18px;
+    }
+    
+    .next-button {
+        width: 180px;
+        height: 55px;
+        font-size: 22px;
+    }
+    
+    /* Responsive styles for upload containers */
+    .responsive-container {
+        width: 90% !important;
+        max-width: 400px;
+        margin-left: auto !important;
+        margin-right: auto !important;
+    }
+    
+    .responsive-text {
+        font-size: 20px !important;
+    }
+    
+    .responsive-button {
+        width: 140px !important;
+        height: 50px !important;
+        font-size: 20px !important;
+    }
+    
+    .responsive-icon {
+        width: 60px !important;
+        height: 60px !important;
+    }
+    
+    .responsive-upload-container {
+        height: 200px !important;
+    }
+    
+    .responsive-header-text {
+        font-size: 20px !important;
+        height: 50px !important;
+    }
+}
+
+@media screen and (min-width: 1024px) and (max-width: 1439px) {
+    /* Desktop */
+    .header {
+        height: 70px;
+        padding: 0 32px;
+    }
+    
+    .logo {
+        width: 44px;
+        height: 44px;
+    }
+    
+    .logo svg {
+        width: 44px;
+        height: 44px;
+    }
+    
+    .hamburger-menu {
+        width: 20px;
+        height: 52px;
+    }
+    
+    .hamburger-line {
+        width: 20px;
+        height: 2px;
+    }
+    
+    .container {
+        width: 450px;
+        height: 60px;
+    }
+    
+    .text-container {
+        width: 450px;
+        height: 60px;
+    }
+    
+    .project-name-text {
+        font-size: 32px;
+    }
+    
+    .text-input {
+        font-size: 20px;
+    }
+    
+    .text-input::placeholder {
+        font-size: 20px;
+    }
+    
+    .next-button {
+        width: 200px;
+        height: 60px;
+        font-size: 24px;
+    }
+    
+    /* Responsive styles for upload containers */
+    .responsive-container {
+        width: 90% !important;
+        max-width: 450px;
+        margin-left: auto !important;
+        margin-right: auto !important;
+    }
+    
+    .responsive-text {
+        font-size: 22px !important;
+    }
+    
+    .responsive-button {
+        width: 150px !important;
+        height: 55px !important;
+        font-size: 22px !important;
+    }
+    
+    .responsive-icon {
+        width: 64px !important;
+        height: 64px !important;
+    }
+    
+    .responsive-upload-container {
+        height: 220px !important;
+    }
+    
+    .responsive-header-text {
+        font-size: 22px !important;
+        height: 55px !important;
+    }
+}
+
+@media screen and (min-width: 1440px) {
+    /* Large desktop */
+    .header {
+        height: 80px;
+        padding: 0 40px;
+    }
+    
+    .logo {
+        width: 48px;
+        height: 48px;
+    }
+    
+    .logo svg {
+        width: 48px;
+        height: 48px;
+    }
+    
+    .hamburger-menu {
+        width: 22px;
+        height: 56px;
+    }
+    
+    .hamburger-line {
+        width: 22px;
+        height: 2px;
+    }
+    
+    .container {
+        width: 500px;
+        height: 65px;
+    }
+    
+    .text-container {
+        width: 500px;
+        height: 65px;
+    }
+    
+    .project-name-text {
+        font-size: 36px;
+    }
+    
+    .text-input {
+        font-size: 22px;
+    }
+    
+    .text-input::placeholder {
+        font-size: 22px;
+    }
+    
+    .next-button {
+        width: 220px;
+        height: 65px;
+        font-size: 26px;
+    }
+    
+    /* Responsive styles for upload containers */
+    .responsive-container {
+        width: 90% !important;
+        max-width: 500px;
+        margin-left: auto !important;
+        margin-right: auto !important;
+    }
+    
+    .responsive-text {
+        font-size: 24px !important;
+    }
+    
+    .responsive-button {
+        width: 160px !important;
+        height: 60px !important;
+        font-size: 24px !important;
+    }
+    
+    .responsive-icon {
+        width: 72px !important;
+        height: 72px !important;
+    }
+    
+    .responsive-upload-container {
+        height: 240px !important;
+    }
+    
+    .responsive-header-text {
+        font-size: 24px !important;
+        height: 60px !important;
+    }
+}
+
+/* Cross-browser compatibility fixes */
+.header {
+    /* Ensure consistent rendering across browsers */
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    
+    /* Fix for Safari border rendering */
+    -webkit-border-bottom: 1px solid #ffffff;
+    border-bottom: 1px solid #ffffff;
+    
+    /* Ensure proper display */
+    display: block;
+    position: relative;
+}
+
+/* Login Page Styles */
+.login-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #000000;
+    padding: 0;
+}
+
+.logo-container {
+    padding-top: 65px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.logo-container svg {
+    width: 253px;
+    height: 169px;
+    flex-shrink: 0;
+}
+
+.title-container {
+    padding-top: 25px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.title-text {
+    color: #FFF;
+    font-family: Monaco, monospace;
+    font-size: 36px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    margin: 0;
+    padding: 0;
+}
+
+.input-container {
+    padding-top: 25px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.input-field {
+    width: 332.299px;
+    height: 62.626px;
+    flex-shrink: 0;
+    background: transparent;
+    border: 1px solid #FFF;
+    border-radius: 8px;
+    color: #FFF;
+    font-family: "Lexend Zetta", monospace;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 49px;
+    padding: 0 16px;
+    box-sizing: border-box;
+    outline: none;
+}
+
+.input-field::placeholder {
+    color: #FFF;
+    font-family: "Lexend Zetta", monospace;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 49px;
+}
+
+.login-button {
+    width: 150px;
+    height: 50px;
+    flex-shrink: 0;
+    background: #FF5E00;
+    border: none;
+    border-radius: 8px;
+    color: #FFF;
+    font-family: Monaco, monospace;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    cursor: pointer;
+    margin-top: 25px;
+    transition: background-color 0.3s ease;
+}
+
+.login-button:hover {
+    background: #e54d00;
+}
+
+.link-container {
+    padding-top: 25px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.new-users-link {
+    color: #FF5E00;
+    text-align: center;
+    font-family: Monaco, monospace;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 49px;
+    text-decoration-line: underline;
+    text-decoration-style: solid;
+    text-decoration-skip-ink: auto;
+    text-decoration-thickness: auto;
+    text-underline-offset: auto;
+    text-underline-position: from-font;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.new-users-link:hover {
+    color: #e54d00;
+}
+
+.forgot-password-link {
+    color: #8B8B8B;
+    text-align: center;
+    font-family: Monaco, monospace;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 49px;
+    text-decoration-line: underline;
+    text-decoration-style: solid;
+    text-decoration-skip-ink: auto;
+    text-decoration-thickness: auto;
+    text-underline-offset: auto;
+    text-underline-position: from-font;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.forgot-password-link:hover {
+    color: #a0a0a0;
+}
+
+/* Terms and Conditions Page Styles */
+.terms-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #000000;
+    padding: 0;
+}
+
+.new-user-container {
+    padding-top: 35px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.new-user-text {
+    color: #FFF;
+    font-family: Monaco, monospace;
+    font-size: 36px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    margin: 0;
+    padding: 0;
+}
+
+.terms-title-container {
+    padding-top: 25px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.terms-title {
+    width: 392.988px;
+    height: 34.51px;
+    flex-shrink: 0;
+    color: #FFF;
+    text-align: center;
+    font-family: "Lexend Zetta", monospace;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 49px;
+    margin: 0;
+    padding: 0;
+}
+
+.terms-content-container {
+    padding-top: 25px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.terms-content {
+    width: 320px;
+    height: 120px;
+    flex-shrink: 0;
+    color: #FFF;
+    text-align: center;
+    font-family: "Lexend Zetta", monospace;
+    font-size: 10px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 20px;
+    margin: 0;
+    padding: 0;
+}
+
+.links-container {
+    padding-top: 25px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+.privacy-policy-link {
+    color: #FFF;
+    font-family: "Lexend Zetta", monospace;
+    font-size: 10px;
+    font-style: normal;
+    font-weight: 400;
+    text-decoration: underline;
+    text-decoration-color: #FFF;
+    transition: color 0.3s ease;
+}
+
+.privacy-policy-link:hover {
+    color: #FF5E00;
+}
+
+.terms-service-link {
+    color: #FFF;
+    font-family: "Lexend Zetta", monospace;
+    font-size: 10px;
+    font-style: normal;
+    font-weight: 400;
+    text-decoration: underline;
+    text-decoration-color: #FFF;
+    transition: color 0.3s ease;
+}
+
+.terms-service-link:hover {
+    color: #FF5E00;
+}
+
+.accept-button-container {
+    padding-top: 25px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.accept-terms-button {
+    width: 327px;
+    height: 48.851px;
+    flex-shrink: 0;
+    border-radius: 15px;
+    background: #FF5E00;
+    border: none;
+    color: #FFF;
+    font-family: "Lexend Zetta", monospace;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.accept-terms-button:hover {
+    background: #e54d00;
+}
+
+/* Main content area */
+.main-content {
+    min-height: calc(100vh - 51px);
+    padding: 0;
+}
+
+@media screen and (min-width: 768px) {
+    .main-content {
+        min-height: calc(100vh - 60px);
+    }
+}
+
+@media screen and (min-width: 1024px) {
+    .main-content {
+        min-height: calc(100vh - 70px);
+    }
+}
+
+@media screen and (min-width: 1440px) {
+    .main-content {
+        min-height: calc(100vh - 80px);
+    }
+}

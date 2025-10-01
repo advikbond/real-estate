@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Terms and Conditions - Real Estate</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="terms-container">
+        <!-- New User text with 35px from top -->
+        <div class="new-user-container">
+            <h1 class="new-user-text">New User</h1>
+        </div>
+
+        <!-- Terms and Conditions title with 25px gap -->
+        <div class="terms-title-container">
+            <h2 class="terms-title">Terms and Conditions</h2>
+        </div>
+
+        <!-- Terms content with 25px gap -->
+        <div class="terms-content-container">
+            <p class="terms-content">
+                By using this application, you agree to our terms of service and privacy policy.<br>
+                We collect minimal data to provide you with the best experience possible.
+            </p>
+        </div>
+
+        <!-- Privacy Policy and Terms of Service links with 25px gap -->
+        <div class="links-container">
+            <a href="#" class="privacy-policy-link">Privacy Policy</a>
+            <div class="link-gap"></div>
+            <a href="#" class="terms-service-link">Terms of Service</a>
+        </div>
+
+        <!-- Accept button with 25px gap -->
+        <div class="accept-button-container">
+            <button class="accept-terms-button" onclick="acceptTerms()">Accept Terms and Conditions</button>
+        </div>
+    </div>
+
+    <script>
+        function acceptTerms() {
+            // Store terms acceptance in localStorage
+            localStorage.setItem('termsAccepted', 'true');
+            
+            // Navigate to the main website after accepting terms
+            window.location.href = 'main.html';
+        }
+        
+        // Check if user is logged in, if not redirect to login
+        window.onload = function() {
+            const userLoggedIn = localStorage.getItem('userLoggedIn');
+            
+            if (userLoggedIn !== 'true') {
+                // User is not logged in, redirect to login
+                window.location.href = 'login.html';
+            }
+        };
+    </script>
+</body>
+</html>

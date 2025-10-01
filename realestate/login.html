@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - Real Estate</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="login-container">
+        <!-- SVG Logo with 65px padding from top -->
+        <div class="logo-container">
+            <svg xmlns="http://www.w3.org/2000/svg" width="253" height="169" viewBox="0 0 253 169" fill="none">
+                <path d="M164.228 82.2162L0 0L48.8245 123.324L164.228 82.2162Z" fill="url(#paint0_linear_29_143)"/>
+                <path d="M239.684 54.8108L164.228 82.2162L239.684 114.189L239.684 54.8108Z" fill="url(#paint1_linear_29_143)"/>
+                <path d="M253 169L164.228 82.2162L164.228 114.189L253 169Z" fill="url(#paint2_linear_29_143)"/>
+                <defs>
+                    <linearGradient id="paint0_linear_29_143" x1="126.5" y1="0" x2="126.5" y2="169" gradientUnits="userSpaceOnUse">
+                        <stop stop-color="white"/>
+                        <stop offset="1" stop-color="#999999"/>
+                    </linearGradient>
+                    <linearGradient id="paint1_linear_29_143" x1="126.5" y1="0" x2="126.5" y2="169" gradientUnits="userSpaceOnUse">
+                        <stop stop-color="white"/>
+                        <stop offset="1" stop-color="#999999"/>
+                    </linearGradient>
+                    <linearGradient id="paint2_linear_29_143" x1="126.5" y1="0" x2="126.5" y2="169" gradientUnits="userSpaceOnUse">
+                        <stop stop-color="white"/>
+                        <stop offset="1" stop-color="#999999"/>
+                    </linearGradient>
+                </defs>
+            </svg>
+        </div>
+
+        <!-- Real-Estate text with 25px padding -->
+        <div class="title-container">
+            <h1 class="title-text">Real - Estate</h1>
+        </div>
+
+        <!-- Phone Number input with 25px padding -->
+        <div class="input-container">
+            <input type="text" id="phoneNumber" class="input-field" placeholder="Phone Number" required>
+        </div>
+
+        <!-- Password input with 25px padding -->
+        <div class="input-container">
+            <input type="password" id="password" class="input-field" placeholder="Password" required>
+        </div>
+
+        <!-- Login button -->
+        <button class="login-button" onclick="handleLogin()">Login</button>
+
+        <!-- New Users link with 25px padding -->
+        <div class="link-container">
+            <a href="#" class="new-users-link">New Users</a>
+        </div>
+
+        <!-- Forgot Password link -->
+        <div class="link-container">
+            <a href="#" class="forgot-password-link">Forgot Password</a>
+        </div>
+    </div>
+
+    <script>
+        function handleLogin() {
+            const phoneNumber = document.getElementById('phoneNumber').value.trim();
+            const password = document.getElementById('password').value.trim();
+            
+            // Basic validation
+            if (!phoneNumber) {
+                alert('Please enter your phone number');
+                return;
+            }
+            
+            if (!password) {
+                alert('Please enter your password');
+                return;
+            }
+            
+            // Simple phone number validation (basic check)
+            if (phoneNumber.length < 10) {
+                alert('Please enter a valid phone number');
+                return;
+            }
+            
+            // For demo purposes, accept any password with at least 4 characters
+            if (password.length < 4) {
+                alert('Password must be at least 4 characters long');
+                return;
+            }
+            
+            // Store login status in localStorage
+            localStorage.setItem('userLoggedIn', 'true');
+            localStorage.setItem('userPhone', phoneNumber);
+            
+            // Navigate to terms and conditions page
+            window.location.href = 'terms-and-conditions.html';
+        }
+        
+        // Check if user is already logged in and has accepted terms
+        window.onload = function() {
+            const userLoggedIn = localStorage.getItem('userLoggedIn');
+            const termsAccepted = localStorage.getItem('termsAccepted');
+            
+            if (userLoggedIn === 'true' && termsAccepted === 'true') {
+                // User is already logged in and accepted terms, go to main page
+                window.location.href = 'main.html';
+            }
+        };
+    </script>
+</body>
+</html>

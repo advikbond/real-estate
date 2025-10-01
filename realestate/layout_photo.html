@@ -1,0 +1,1054 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Layout Photo - Real Estate Website</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* Responsive styles for mobile devices */
+        @media screen and (max-width: 768px) {
+            .responsive-container {
+                width: 90% !important;
+                max-width: 342px;
+                margin-left: auto !important;
+                margin-right: auto !important;
+            }
+            
+            .responsive-text {
+                font-size: 18px !important;
+            }
+            
+            .responsive-button {
+                width: 120px !important;
+                height: 45px !important;
+                font-size: 18px !important;
+            }
+            
+            .responsive-icon {
+                width: 48px !important;
+                height: 48px !important;
+            }
+            
+            .responsive-upload-container {
+                height: 180px !important;
+            }
+            
+            .responsive-header-text {
+                font-size: 18px !important;
+                height: 45px !important;
+            }
+        }
+        
+        @media screen and (max-width: 480px) {
+            .responsive-container {
+                width: 95% !important;
+            }
+            
+            .responsive-text {
+                font-size: 16px !important;
+            }
+            
+            .responsive-button {
+                width: 100px !important;
+                height: 40px !important;
+                font-size: 16px !important;
+            }
+            
+            .responsive-icon {
+                width: 40px !important;
+                height: 40px !important;
+            }
+            
+            .responsive-upload-container {
+                height: 160px !important;
+            }
+            
+            .responsive-header-text {
+                font-size: 16px !important;
+                height: 40px !important;
+            }
+        }
+        
+        @media screen and (max-width: 360px) {
+            .responsive-container {
+                width: 98% !important;
+            }
+            
+            .responsive-text {
+                font-size: 14px !important;
+            }
+            
+            .responsive-button {
+                width: 90px !important;
+                height: 35px !important;
+                font-size: 14px !important;
+            }
+            
+            .responsive-icon {
+                width: 36px !important;
+                height: 36px !important;
+            }
+            
+            .responsive-upload-container {
+                height: 140px !important;
+            }
+            
+            .responsive-header-text {
+                font-size: 14px !important;
+                height: 35px !important;
+            }
+        }
+        
+        /* Override for expanded upload container */
+        .upload-container-expanded {
+            height: auto !important;
+            max-height: none !important;
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="logo">
+            <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 36 36" fill="none">
+                <path d="M16.997 9.75035L22.2859 8.02875L18.809 13.0927L17.04 15.6691L8.69576 27.8222C8.2351 28.4931 8.35053 29.4725 8.96539 30.11L11.841 33.0911C12.3286 33.5967 13.026 33.7741 13.6158 33.5425L25.7764 28.768C26.6644 28.4193 26.9885 27.2913 26.4681 26.3603L21.7228 17.87L20.2174 20.021L22.9533 26.1238L12.998 30.3368L20.2174 20.021L21.7228 17.87L26.6229 10.8683C27.0886 10.2028 26.9817 9.22465 26.373 8.58213L21.3458 3.27564C20.8234 2.72417 20.0576 2.55747 19.4454 2.86197L14.0825 5.52975C13.325 5.90656 13.038 6.8794 13.4302 7.74089L17.04 15.6691L18.809 13.0927L16.997 9.75035Z" fill="url(#paint0_linear_2_359)"/>
+                <defs>
+                    <linearGradient id="paint0_linear_2_359" x1="12.8601" y1="5.72792" x2="22.5551" y2="30.4205" gradientUnits="userSpaceOnUse">
+                        <stop stop-color="white"/>
+                        <stop offset="0.701923" stop-color="#F6F6F6"/>
+                        <stop offset="1" stop-color="#999999"/>
+                    </linearGradient>
+                </defs>
+            </svg>
+        </div>
+        <div class="hamburger-menu" onclick="toggleMenu()">
+            <span class="hamburger-line"></span>
+            <span class="hamburger-line"></span>
+            <span class="hamburger-line"></span>
+            <div class="hamburger-dropdown" id="hamburgerDropdown">
+                <button class="logout-button" onclick="handleLogout()">Logout</button>
+            </div>
+        </div>
+    </header>
+    
+    <div class="next-page-container">
+    </div>
+    
+    <button class="back-button" onclick="goBackToNextPage()">
+        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32" fill="none">
+            <circle cx="16" cy="16" r="14.5" stroke="white" stroke-width="2"/>
+        </svg>
+        <span class="back-button-text">←</span>
+    </button>
+    
+    <div class="responsive-container responsive-header-text" style="margin-top: 65px; height: 50px; flex-shrink: 0; border-radius: 15px; background: #FFF; color: #000; font-family: Monaco; font-size: 20px; font-style: normal; font-weight: 400; line-height: normal; display: flex; align-items: center; justify-content: center;">
+        Site Layout
+    </div>
+    
+    <div id="upload-container" class="responsive-container responsive-upload-container" style="margin-top: 20px; height: 200px; flex-shrink: 0; border-radius: 15px; background: #FFF; display: flex; flex-direction: column; align-items: center; justify-content: center; cursor: pointer; position: relative; overflow: hidden;" onclick="if(!window.photoUploaded) document.getElementById('photo-upload').click()">
+        <div id="upload-placeholder" style="display: flex; flex-direction: column; align-items: center; justify-content: center;">
+        <svg class="responsive-icon" xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 64 64" fill="none">
+            <path d="M54 16.25H45.5L43.475 10.575C43.3351 10.1867 43.0787 9.85101 42.7409 9.61386C42.4031 9.37671 42.0003 9.24964 41.5875 9.25H22.4125C21.5688 9.25 20.8125 9.78125 20.5312 10.575L18.5 16.25H10C7.2375 16.25 5 18.4875 5 21.25V49.75C5 52.5125 7.2375 54.75 10 54.75H54C56.7625 54.75 59 52.5125 59 49.75V21.25C59 18.4875 56.7625 16.25 54 16.25ZM32 44.75C26.475 44.75 22 40.275 22 34.75C22 29.225 26.475 24.75 32 24.75C37.525 24.75 42 29.225 42 34.75C42 40.275 37.525 44.75 32 44.75ZM26 34.75C26 36.3413 26.6321 37.8674 27.7574 38.9926C28.8826 40.1179 30.4087 40.75 32 40.75C33.5913 40.75 35.1174 40.1179 36.2426 38.9926C37.3679 37.8674 38 36.3413 38 34.75C38 33.1587 37.3679 31.6326 36.2426 30.5074C35.1174 29.3821 33.5913 28.75 32 28.75C30.4087 28.75 28.8826 29.3821 27.7574 30.5074C26.6321 31.6326 26 33.1587 26 34.75Z" fill="#1A1A1A"/>
+        </svg>
+        <span class="responsive-text" style="margin-top: 10px; color: #000; font-family: Monaco; font-size: 20px; font-style: normal; font-weight: 400; line-height: normal;">UPLOAD LAYOUT</span>
+        </div>
+        <div id="photo-preview" style="display: none; width: 100%; height: 100%; position: relative; overflow: hidden; border-radius: 15px;">
+            <div id="image-container" style="position: relative; width: 100%; height: 100%; transform-origin: 0 0;">
+                <img id="uploaded-photo" style="width: 100%; height: 100%; object-fit: contain; user-select: none; pointer-events: none;" />
+                <canvas id="plot-canvas" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; cursor: crosshair; border-radius: 15px;"></canvas>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Tool buttons positioned outside the expanded container -->
+    <!-- Tool icons positioned below the expanded container -->
+    <div style="display: none; margin-top: 20px; text-align: center;" id="tool-icons-container">
+        <svg id="mark-btn" class="tool-btn" xmlns="http://www.w3.org/2000/svg" width="50" height="50" viewBox="0 0 50 50" fill="none" style="cursor: pointer; margin: 0 5px; flex-shrink: 0;">
+            <circle cx="25" cy="25" r="23.5" fill="white" stroke="#F28482" stroke-width="3"/>
+            <rect x="13" y="14" width="23" height="23" stroke="#4D00FF" stroke-width="2" stroke-dasharray="4 4"/>
+        </svg>
+        <img id="erase-btn" class="tool-btn" src="../Assets/Reset.png" alt="Reset" style="width: 50px; height: 50px; object-fit: contain; cursor: pointer; margin: 0 5px; flex-shrink: 0;">
+        <svg id="undo-back-btn" class="tool-btn" xmlns="http://www.w3.org/2000/svg" width="50" height="51" viewBox="0 0 50 51" fill="none" style="cursor: pointer; margin: 0 5px; flex-shrink: 0; height: 50.633px;">
+            <circle cx="25" cy="25" r="23.5" fill="white" stroke="white" stroke-width="3"/>
+            <path d="M10.1667 15.6208C9.77571 16.0148 9.76929 16.6535 10.1524 17.0475L16.3948 23.4677C16.7779 23.8617 17.4054 23.8617 17.7963 23.4677C18.1873 23.0737 18.1937 22.435 17.8107 22.041L12.2618 16.3342L17.9253 10.6273C18.3163 10.2334 18.3227 9.59461 17.9396 9.20064C17.5565 8.80666 16.929 8.80666 16.5381 9.20063L10.1667 15.6208ZM41.0306 26.5478L42.0216 26.5262L41.0306 26.5478ZM10.8603 37.2732L10.8534 38.282L30.7006 38.2155L30.7074 37.2067L30.7143 36.1979L10.8672 36.2644L10.8603 37.2732ZM22.8553 37.233L22.8621 36.2242L10.8672 36.2644L10.8603 37.2732L10.8534 38.282L22.8484 38.2419L22.8553 37.233ZM30.8833 16.3342L30.8934 15.3253L10.8704 15.3253L10.8603 16.3342L10.8502 17.343L30.8732 17.343L30.8833 16.3342ZM41.0306 26.5478L42.0216 26.5262C41.9536 20.3019 37.0094 15.3253 30.8934 15.3253L30.8833 16.3342L30.8732 17.343C35.9109 17.343 39.9835 21.4422 40.0395 26.5693L41.0306 26.5478ZM30.7074 37.2067L30.7006 38.2155C36.9896 38.1945 42.0915 32.9266 42.0216 26.5262L41.0306 26.5478L40.0395 26.5693C40.0971 31.8413 35.8946 36.1805 30.7143 36.1979L30.7074 37.2067Z" fill="#E96B68"/>
+        </svg>
+        <img id="zoom-in-btn" src="../Assets/Zoom-in.png" alt="Zoom In" style="width: 50px; height: 50px; object-fit: contain; cursor: pointer; margin: 0 5px; flex-shrink: 0;">
+        <svg id="zoom-out-btn" xmlns="http://www.w3.org/2000/svg" width="50" height="50" viewBox="0 0 50 50" fill="none" style="cursor: pointer; margin: 0 5px; flex-shrink: 0;">
+            <circle cx="25" cy="25" r="23.5" fill="white" stroke="white" stroke-width="3"/>
+            <line x1="41.0142" y1="25" x2="7.99988" y2="25" stroke="#F28482" stroke-width="2" stroke-linecap="round"/>
+        </svg>
+    </div>
+    
+    <input type="file" id="photo-upload" accept="image/*" multiple style="display: none;" onchange="handlePhotoUpload(event)">
+    
+    <div class="responsive-container" style="margin-top: 20px; display: flex; justify-content: space-between; align-items: center;">
+        <!-- Left side: SVG icon and text (hidden initially) -->
+        <div id="select-partners-container" style="display: none; flex-direction: column; align-items: center; flex: 1;">
+            <div id="select-partners-clickable" style="display: flex; flex-direction: column; align-items: center; cursor: pointer;" onclick="togglePartnersModal()">
+                <svg xmlns="http://www.w3.org/2000/svg" width="50" height="54" viewBox="0 0 50 54" fill="none" style="flex-shrink: 0;">
+                    <circle cx="25" cy="25" r="25" fill="white"/>
+                    <circle cx="25" cy="16" r="10" fill="#F28482"/>
+                    <path d="M39 40C39 36.287 37.525 32.726 34.8995 30.1005C32.274 27.475 28.713 26 25 26C21.287 26 17.726 27.475 15.1005 30.1005C12.475 32.726 11 36.287 11 40L25 40H39Z" fill="#F28482"/>
+                </svg>
+                <span style="color: #F28482; -webkit-text-stroke-width: 0.5px; -webkit-text-stroke-color: #F28482; font-family: Monaco; font-size: 14px; font-style: normal; font-weight: 400; line-height: normal; letter-spacing: 0.7px; margin-top: 5px;">Select Partners</span>
+            </div>
+        </div>
+        
+        <!-- Right side: Skip and Save buttons -->
+        <div style="display: flex; gap: 10px;">
+            <button class="responsive-button" style="height: 50px; flex-shrink: 0; border-radius: 15px; background: #FFF; color: #000; font-family: Monaco; font-size: 20px; font-style: normal; font-weight: 400; line-height: normal; border: none; cursor: pointer;">Skip</button>
+            <button id="save-btn" class="responsive-button" style="height: 50px; flex-shrink: 0; border-radius: 15px; background: #FF5E00; color: #FFF; font-family: Monaco; font-size: 20px; font-style: normal; font-weight: 400; line-height: normal; border: none; cursor: pointer; display: none;" onclick="saveAndGoToPlotMarking()">Save</button>
+        </div>
+    </div>
+    
+    <!-- Debug button -->
+    <div class="responsive-container" style="margin-top: 10px; display: flex; justify-content: center;">
+        <button onclick="debugState()" style="padding: 10px 20px; background: #666; color: white; border: none; border-radius: 5px; cursor: pointer; font-family: Monaco; font-size: 14px;">Debug State</button>
+    </div>
+    
+    <main class="main-content">
+        <!-- Main content will go here -->
+    </main>
+    
+    <!-- Partners Modal -->
+    <div id="partners-modal" class="partners-modal" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.5); z-index: 1000; justify-content: center; align-items: flex-end;">
+        <div class="partners-modal-content" style="width: 391px; height: 564px; flex-shrink: 0; border-radius: 15px 15px 0 0; border-top: 2px solid #F28482; border-right: 2px solid #F28482; border-left: 2px solid #F28482; background: #FFF; box-shadow: -4px -4px 4px 0 rgba(0, 0, 0, 0.25); position: relative;">
+            <!-- Top bar -->
+            <div style="width: 83px; height: 5px; background: rgba(242, 132, 130, 0.46); margin: 5px auto 0 auto; border-radius: 2.5px;"></div>
+            
+            <!-- Title -->
+            <div style="text-align: center; margin-top: 5px;">
+                <span style="color: #000; -webkit-text-stroke-width: 0.5px; -webkit-text-stroke-color: #000; font-family: Monaco; font-size: 30px; font-style: normal; font-weight: 400; line-height: normal; letter-spacing: 1.5px;">Select Partners</span>
+            </div>
+            
+            <!-- Partners List -->
+            <div id="partners-list" style="padding: 5px; margin-top: 5px; max-height: 450px; overflow-y: auto;">
+                <!-- Partners will be dynamically added here -->
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        // Global variables
+        let photoUploaded = false;
+        let plotNumber = 1;
+        let isDrawing = false;
+        let isErasing = false;
+        let isPanning = false;
+        let startX, startY;
+        let plots = [];
+        let history = [];
+        let historyIndex = -1;
+        let canvas, ctx;
+        let imageContainer;
+        
+        // Transform variables for zoom and pan
+        let scale = 1;
+        let translateX = 0;
+        let translateY = 0;
+        let lastPanX = 0;
+        let lastPanY = 0;
+
+        function goBackToNextPage() {
+            window.location.href = 'next-page.html';
+        }
+        
+        function handlePhotoUpload(event) {
+            const files = event.target.files;
+            if (files.length > 0) {
+                const file = files[0];
+                const reader = new FileReader();
+                
+                reader.onload = function(e) {
+                    const img = document.getElementById('uploaded-photo');
+                    img.src = e.target.result;
+                    
+                    // Show photo preview and hide placeholder
+                    document.getElementById('upload-placeholder').style.display = 'none';
+                    document.getElementById('photo-preview').style.display = 'block';
+                    
+                    // Show tool icons container
+                    document.getElementById('tool-icons-container').style.display = 'block';
+                    
+                    // Show select partners container
+                    document.getElementById('select-partners-container').style.display = 'flex';
+                    
+                    document.getElementById('save-btn').style.display = 'block';
+                    console.log('Tools and save button should now be visible');
+                    
+                    // Expand container height to fill space down to footer
+                    const container = document.getElementById('upload-container');
+                    
+                    // Add CSS class to override responsive constraints
+                    container.classList.add('upload-container-expanded');
+                    
+                    // Calculate available height from container to bottom of viewport
+                    const containerRect = container.getBoundingClientRect();
+                    const viewportHeight = window.innerHeight;
+                    const availableHeight = viewportHeight - containerRect.top - 100; // 100px margin for buttons
+                    const newHeight = Math.max(availableHeight, 400);
+                    
+                    // Set height with !important to override CSS
+                    container.style.setProperty('height', newHeight + 'px', 'important');
+                    container.style.setProperty('max-height', 'none', 'important');
+                    
+                    // Initialize canvas and image container
+                    initializeCanvas();
+                    
+                    // Set mark mode as active by default
+                    isDrawing = true;
+                    canvas.style.cursor = 'crosshair';
+                    document.getElementById('mark-btn').style.background = '#FF5E00';
+                    
+                    // Set a flag to keep mark mode active
+                    window.markModeActive = true;
+                    
+                    photoUploaded = true;
+                    window.photoUploaded = true;
+                };
+                
+                reader.readAsDataURL(file);
+            }
+        }
+
+        function initializeCanvas() {
+            canvas = document.getElementById('plot-canvas');
+            ctx = canvas.getContext('2d');
+            imageContainer = document.getElementById('image-container');
+            
+            // Set canvas size to match container
+            const container = document.getElementById('upload-container');
+            canvas.width = container.offsetWidth;
+            canvas.height = container.offsetHeight;
+            
+            // Add event listeners for different modes (mouse and touch)
+            canvas.addEventListener('mousedown', handleMouseDown);
+            canvas.addEventListener('mousemove', handleMouseMove);
+            canvas.addEventListener('mouseup', handleMouseUp);
+            canvas.addEventListener('mouseout', handleMouseUp);
+            canvas.addEventListener('wheel', handleWheel);
+            
+            // Touch events for mobile
+            canvas.addEventListener('touchstart', handleTouchStart, { passive: false });
+            canvas.addEventListener('touchmove', handleTouchMove, { passive: false });
+            canvas.addEventListener('touchend', handleTouchEnd, { passive: false });
+            
+            // Initialize tool buttons and zoom controls
+            initializeToolButtons();
+            initializeZoomControls();
+            
+            // Initialize history with empty state
+            history = [];
+            historyIndex = -1;
+            saveToHistory(); // Save initial empty state
+        }
+
+        function initializeToolButtons() {
+            document.getElementById('mark-btn').addEventListener('click', () => setMode('mark'));
+            document.getElementById('erase-btn').addEventListener('click', () => setMode('erase'));
+            document.getElementById('undo-back-btn').addEventListener('click', undoBack);
+        }
+
+        function initializeZoomControls() {
+            document.getElementById('zoom-in-btn').addEventListener('click', () => zoomIn());
+            document.getElementById('zoom-out-btn').addEventListener('click', () => zoomOut());
+        }
+
+        function setMode(mode) {
+            // Reset all tool images
+            document.querySelectorAll('.tool-btn').forEach(img => {
+                img.style.border = 'none';
+            });
+            
+            isErasing = false;
+            isPanning = false;
+            
+            if (mode === 'mark') {
+                // Toggle mark mode
+                window.markModeActive = !window.markModeActive;
+                isDrawing = window.markModeActive;
+                if (isDrawing) {
+                    canvas.style.cursor = 'crosshair';
+                    document.getElementById('mark-btn').style.border = '3px solid #FF5E00';
+                    document.getElementById('mark-btn').style.borderRadius = '50%';
+                } else {
+                    canvas.style.cursor = 'grab';
+                }
+            } else if (mode === 'erase') {
+                isErasing = true;
+                isDrawing = false;
+                canvas.style.cursor = 'pointer';
+                document.getElementById('erase-btn').style.border = '3px solid #FF5E00';
+                document.getElementById('erase-btn').style.borderRadius = '50%';
+            } else {
+                // Default pan mode when no tool is active
+                isDrawing = false;
+                isErasing = false;
+                canvas.style.cursor = 'grab';
+            }
+        }
+
+        function handleMouseDown(e) {
+            e.preventDefault();
+            const rect = canvas.getBoundingClientRect();
+            const x = e.clientX - rect.left;
+            const y = e.clientY - rect.top;
+            
+            if (isErasing) {
+                // Handle erase mode - find plot at click position
+                // Find and remove plot at this position
+                const plotToRemove = plots.find(plot => 
+                    x >= plot.x && x <= plot.x + plot.width &&
+                    y >= plot.y && y <= plot.y + plot.height
+                );
+                
+                if (plotToRemove) {
+                    saveToHistory();
+                    plots = plots.filter(plot => plot !== plotToRemove);
+                    redrawCanvas();
+                }
+                return;
+            }
+            
+            if (window.markModeActive) {
+                // Handle mark mode - start drawing
+                isDrawing = true;
+                startX = x;
+                startY = y;
+            } else {
+                // Handle pan mode - start panning when mark is inactive
+                isPanning = true;
+                lastPanX = x;
+                lastPanY = y;
+                canvas.style.cursor = 'grabbing';
+            }
+        }
+
+        function handleMouseMove(e) {
+            if (isPanning) {
+                // Handle pan mode
+                const rect = canvas.getBoundingClientRect();
+                const currentX = e.clientX - rect.left;
+                const currentY = e.clientY - rect.top;
+                
+                const deltaX = currentX - lastPanX;
+                const deltaY = currentY - lastPanY;
+                
+                translateX += deltaX;
+                translateY += deltaY;
+                
+                lastPanX = currentX;
+                lastPanY = currentY;
+                
+                updateTransform();
+                return;
+            }
+            
+            if (isDrawing && startX !== null && startY !== null) {
+                // Handle drawing mode
+                const rect = canvas.getBoundingClientRect();
+                const currentX = e.clientX - rect.left;
+                const currentY = e.clientY - rect.top;
+                
+                // Clear canvas and redraw all plots
+                ctx.clearRect(0, 0, canvas.width, canvas.height);
+                redrawPlots();
+                
+                // Draw current rectangle being drawn - fixed on image
+                ctx.strokeStyle = '#FF5E00';
+                ctx.lineWidth = 2;
+                ctx.setLineDash([5, 5]);
+                ctx.strokeRect(
+                    Math.min(startX, currentX),
+                    Math.min(startY, currentY),
+                    Math.abs(currentX - startX),
+                    Math.abs(currentY - startY)
+                );
+            }
+        }
+
+        function handleMouseUp(e) {
+            if (isPanning) {
+                isPanning = false;
+                canvas.style.cursor = 'grab';
+                return;
+            }
+            
+            if (isDrawing) {
+                const rect = canvas.getBoundingClientRect();
+                const endX = e.clientX - rect.left;
+                const endY = e.clientY - rect.top;
+                
+                // Only create plot if it's large enough
+                const width = Math.abs(endX - startX);
+                const height = Math.abs(endY - startY);
+                
+                if (width > 10 && height > 10) {
+                    saveToHistory();
+                    
+                    const plot = {
+                        x: Math.min(startX, endX),
+                        y: Math.min(startY, endY),
+                        width: width,
+                        height: height,
+                        number: plotNumber++
+                    };
+                    
+                    plots.push(plot);
+                    console.log('Plot added:', plot);
+                    console.log('Total plots:', plots.length);
+                    redrawCanvas();
+                    
+                }
+                
+                // Reset drawing state after completing a plot
+                isDrawing = false;
+                startX = null;
+                startY = null;
+                
+                // Keep mark mode ready for next drawing if it was active
+                if (window.markModeActive) {
+                    canvas.style.cursor = 'crosshair';
+                    // Don't set isDrawing = true here, wait for next mousedown
+                } else {
+                    canvas.style.cursor = 'grab';
+                }
+            }
+        }
+
+        function handleWheel(e) {
+            e.preventDefault();
+            
+            const rect = canvas.getBoundingClientRect();
+            const mouseX = e.clientX - rect.left;
+            const mouseY = e.clientY - rect.top;
+            
+            const zoomFactor = e.deltaY > 0 ? 0.9 : 1.1;
+            const newScale = Math.max(0.5, Math.min(3, scale * zoomFactor));
+            
+            // Zoom towards mouse position
+            const scaleChange = newScale / scale;
+            translateX = mouseX - (mouseX - translateX) * scaleChange;
+            translateY = mouseY - (mouseY - translateY) * scaleChange;
+            scale = newScale;
+            
+            updateTransform();
+        }
+
+        function zoomIn() {
+            const rect = canvas.getBoundingClientRect();
+            const centerX = rect.width / 2;
+            const centerY = rect.height / 2;
+            
+            const newScale = Math.min(3, scale * 1.2);
+            const scaleChange = newScale / scale;
+            
+            translateX = centerX - (centerX - translateX) * scaleChange;
+            translateY = centerY - (centerY - translateY) * scaleChange;
+            scale = newScale;
+            
+            updateTransform();
+        }
+
+        function zoomOut() {
+            const rect = canvas.getBoundingClientRect();
+            const centerX = rect.width / 2;
+            const centerY = rect.height / 2;
+            
+            const newScale = Math.max(0.5, scale / 1.2);
+            const scaleChange = newScale / scale;
+            
+            translateX = centerX - (centerX - translateX) * scaleChange;
+            translateY = centerY - (centerY - translateY) * scaleChange;
+            scale = newScale;
+            
+            updateTransform();
+        }
+
+        function resetZoom() {
+            scale = 1;
+            translateX = 0;
+            translateY = 0;
+            updateTransform();
+        }
+
+        function updateTransform() {
+            imageContainer.style.transform = `translate(${translateX}px, ${translateY}px) scale(${scale})`;
+            redrawCanvas();
+        }
+
+        function redrawCanvas() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            redrawPlots();
+        }
+
+        function redrawPlots() {
+            plots.forEach(plot => {
+                // Draw rectangle - plots stay fixed on the image, not moving with pan
+                ctx.strokeStyle = '#FF5E00';
+                ctx.lineWidth = 2;
+                ctx.setLineDash([]);
+                ctx.strokeRect(
+                    plot.x,
+                    plot.y,
+                    plot.width,
+                    plot.height
+                );
+                
+                // Draw number
+                ctx.fillStyle = '#FF5E00';
+                ctx.font = '16px Monaco';
+                ctx.textAlign = 'center';
+                ctx.fillText(
+                    plot.number.toString(),
+                    plot.x + plot.width / 2,
+                    plot.y + plot.height / 2 + 6
+                );
+            });
+        }
+
+        function saveToHistory() {
+            // Remove any history after current index
+            history = history.slice(0, historyIndex + 1);
+            
+            // Add current state to history
+            history.push(JSON.parse(JSON.stringify(plots)));
+            historyIndex++;
+            
+            // Limit history size
+            if (history.length > 50) {
+                history.shift();
+                historyIndex--;
+            }
+            
+        }
+
+        function undoBack() {
+            if (historyIndex > 0) {
+                historyIndex--;
+                plots = JSON.parse(JSON.stringify(history[historyIndex]));
+                redrawCanvas();
+            }
+        }
+
+
+        // Touch event handlers for mobile
+        function handleTouchStart(e) {
+            e.preventDefault();
+            if (e.touches.length === 1) {
+                const touch = e.touches[0];
+                const rect = canvas.getBoundingClientRect();
+                const x = touch.clientX - rect.left;
+                const y = touch.clientY - rect.top;
+                
+                if (isErasing) {
+                    // Handle erase mode - find plot at touch position
+                    // Find and remove plot at this position
+                    const plotToRemove = plots.find(plot => 
+                        x >= plot.x && x <= plot.x + plot.width &&
+                        y >= plot.y && y <= plot.y + plot.height
+                    );
+                    
+                    if (plotToRemove) {
+                        saveToHistory();
+                        plots = plots.filter(plot => plot !== plotToRemove);
+                        redrawCanvas();
+                    }
+                    return;
+                }
+                
+                if (window.markModeActive) {
+                    // Handle mark mode - start drawing
+                    isDrawing = true;
+                    startX = x;
+                    startY = y;
+                } else {
+                    // Handle pan mode - start panning when mark is inactive
+                    isPanning = true;
+                    lastPanX = x;
+                    lastPanY = y;
+                }
+            } else if (e.touches.length === 2) {
+                // Handle pinch zoom
+                const touch1 = e.touches[0];
+                const touch2 = e.touches[1];
+                const rect = canvas.getBoundingClientRect();
+                
+                const centerX = (touch1.clientX + touch2.clientX) / 2 - rect.left;
+                const centerY = (touch1.clientY + touch2.clientY) / 2 - rect.top;
+                
+                const distance = Math.sqrt(
+                    Math.pow(touch2.clientX - touch1.clientX, 2) + 
+                    Math.pow(touch2.clientY - touch1.clientY, 2)
+                );
+                
+                // Store initial values for pinch zoom
+                canvas.initialDistance = distance;
+                canvas.initialScale = scale;
+                canvas.initialTranslateX = translateX;
+                canvas.initialTranslateY = translateY;
+                canvas.initialCenterX = centerX;
+                canvas.initialCenterY = centerY;
+            }
+        }
+
+        function handleTouchMove(e) {
+            e.preventDefault();
+            if (e.touches.length === 1 && isPanning) {
+                // Handle pan mode
+                const touch = e.touches[0];
+                const rect = canvas.getBoundingClientRect();
+                const currentX = touch.clientX - rect.left;
+                const currentY = touch.clientY - rect.top;
+                
+                const deltaX = currentX - lastPanX;
+                const deltaY = currentY - lastPanY;
+                
+                translateX += deltaX;
+                translateY += deltaY;
+                
+                lastPanX = currentX;
+                lastPanY = currentY;
+                
+                updateTransform();
+            } else if (e.touches.length === 1 && isDrawing && startX !== null && startY !== null) {
+                // Handle drawing mode
+                const touch = e.touches[0];
+                const rect = canvas.getBoundingClientRect();
+                const currentX = touch.clientX - rect.left;
+                const currentY = touch.clientY - rect.top;
+                
+                // Clear canvas and redraw all plots
+                ctx.clearRect(0, 0, canvas.width, canvas.height);
+                redrawPlots();
+                
+                // Draw current rectangle being drawn
+                ctx.strokeStyle = '#FF5E00';
+                ctx.lineWidth = 2;
+                ctx.setLineDash([5, 5]);
+                ctx.strokeRect(
+                    Math.min(startX, currentX),
+                    Math.min(startY, currentY),
+                    Math.abs(currentX - startX),
+                    Math.abs(currentY - startY)
+                );
+            } else if (e.touches.length === 2) {
+                // Handle pinch zoom
+                const touch1 = e.touches[0];
+                const touch2 = e.touches[1];
+                const rect = canvas.getBoundingClientRect();
+                
+                const currentDistance = Math.sqrt(
+                    Math.pow(touch2.clientX - touch1.clientX, 2) + 
+                    Math.pow(touch2.clientY - touch1.clientY, 2)
+                );
+                
+                if (canvas.initialDistance) {
+                    const scaleChange = currentDistance / canvas.initialDistance;
+                    const newScale = Math.max(0.5, Math.min(3, canvas.initialScale * scaleChange));
+                    
+                    // Zoom towards center of pinch
+                    const centerX = (touch1.clientX + touch2.clientX) / 2 - rect.left;
+                    const centerY = (touch1.clientY + touch2.clientY) / 2 - rect.top;
+                    
+                    translateX = centerX - (centerX - canvas.initialTranslateX) * (newScale / canvas.initialScale);
+                    translateY = centerY - (centerY - canvas.initialTranslateY) * (newScale / canvas.initialScale);
+                    scale = newScale;
+                    
+                    updateTransform();
+                }
+            }
+        }
+
+        function handleTouchEnd(e) {
+            e.preventDefault();
+            if (e.touches.length === 0) {
+                if (isPanning) {
+                    isPanning = false;
+                } else if (isDrawing) {
+                    // Finish drawing
+                    const touch = e.changedTouches[0];
+                    const rect = canvas.getBoundingClientRect();
+                    const endX = touch.clientX - rect.left;
+                    const endY = touch.clientY - rect.top;
+                    
+                    // Only create plot if it's large enough
+                    const width = Math.abs(endX - startX);
+                    const height = Math.abs(endY - startY);
+                    
+                    if (width > 10 && height > 10) {
+                        saveToHistory();
+                        
+                        const plot = {
+                            x: Math.min(startX, endX),
+                            y: Math.min(startY, endY),
+                            width: width,
+                            height: height,
+                            number: plotNumber++
+                        };
+                        
+                        plots.push(plot);
+                        console.log('Plot added (touch):', plot);
+                        console.log('Total plots:', plots.length);
+                        redrawCanvas();
+                        
+                    }
+                    
+                    // Reset drawing state after completing a plot
+                    isDrawing = false;
+                    startX = null;
+                    startY = null;
+                    
+                    // Keep mark mode ready for next drawing if it was active
+                    if (window.markModeActive) {
+                        canvas.style.cursor = 'crosshair';
+                        // Don't set isDrawing = true here, wait for next touchstart
+                    } else {
+                        canvas.style.cursor = 'grab';
+                    }
+                }
+                
+                // Reset pinch zoom
+                canvas.initialDistance = null;
+            }
+        }
+
+        function compressImage(img, maxWidth = 800, quality = 0.8) {
+            return new Promise((resolve) => {
+                const canvas = document.createElement('canvas');
+                const ctx = canvas.getContext('2d');
+                
+                // Calculate new dimensions
+                let { width, height } = img;
+                if (width > maxWidth) {
+                    height = (height * maxWidth) / width;
+                    width = maxWidth;
+                }
+                
+                canvas.width = width;
+                canvas.height = height;
+                
+                // Draw and compress
+                ctx.drawImage(img, 0, 0, width, height);
+                const compressedDataUrl = canvas.toDataURL('image/jpeg', quality);
+                
+                console.log('Image compressed:', {
+                    original: img.src.length,
+                    compressed: compressedDataUrl.length,
+                    reduction: Math.round((1 - compressedDataUrl.length / img.src.length) * 100) + '%'
+                });
+                
+                resolve(compressedDataUrl);
+            });
+        }
+
+        async function saveAndGoToPlotMarking() {
+            // Check if photo is uploaded
+            const img = document.getElementById('uploaded-photo');
+            if (!img || !img.src) {
+                alert('Please upload a photo first');
+                return;
+            }
+            
+            // Check if plots exist
+            if (!plots || plots.length === 0) {
+                alert('Please create at least one plot before saving');
+                return;
+            }
+            
+            console.log('Saving plot data...');
+            console.log('Number of plots:', plots.length);
+            console.log('Original image size:', img.src.length, 'characters');
+            
+            try {
+                // Compress image to reduce size
+                const compressedImageData = await compressImage(img);
+                
+                // Save plots data
+                const plotsData = {
+                    plots: plots,
+                    transform: {
+                        scale: scale,
+                        translateX: translateX,
+                        translateY: translateY
+                    }
+                };
+                
+                // Check if compressed data is still too large
+                const plotsDataSize = JSON.stringify(plotsData).length;
+                const imageDataSize = compressedImageData.length;
+                const totalSize = plotsDataSize + imageDataSize;
+                
+                console.log('Data sizes:', {
+                    plotsData: plotsDataSize,
+                    imageData: imageDataSize,
+                    total: totalSize
+                });
+                
+                // Save plots data (should be small)
+                localStorage.setItem('plotMarkingData', JSON.stringify(plotsData));
+                console.log('Plots data saved successfully');
+                
+                // Try to save compressed image data
+                try {
+                    localStorage.setItem('uploadedImageData', compressedImageData);
+                    console.log('Compressed image data saved successfully');
+                } catch (imageError) {
+                    console.warn('Even compressed image too large for localStorage');
+                    localStorage.setItem('imageTooLarge', 'true');
+                }
+                
+                // Navigate to plot marking page
+                window.location.href = 'plot_marking.html';
+                
+            } catch (error) {
+                console.error('Error saving data:', error);
+                alert('Error saving data. Please try again.');
+            }
+        }
+        
+        function goToPlotMarking() {
+            window.location.href = 'plot_marking.html';
+        }
+        
+        function debugState() {
+            console.log('=== DEBUG STATE ===');
+            console.log('Photo uploaded:', !!document.getElementById('uploaded-photo').src);
+            console.log('Plots array:', plots);
+            console.log('Number of plots:', plots.length);
+            console.log('Save button visible:', document.getElementById('save-btn').style.display);
+            console.log('Photo preview visible:', document.getElementById('photo-preview').style.display);
+            console.log('Tool buttons visible:', document.getElementById('tool-buttons').style.display);
+            console.log('==================');
+            
+            alert(`Debug Info:
+Photo uploaded: ${!!document.getElementById('uploaded-photo').src}
+Number of plots: ${plots.length}
+Save button visible: ${document.getElementById('save-btn').style.display}
+Plots: ${JSON.stringify(plots, null, 2)}`);
+        }
+
+        function toggleMenu() {
+            const dropdown = document.getElementById('hamburgerDropdown');
+            dropdown.classList.toggle('show');
+        }
+
+        function handleLogout() {
+            // Navigate to login page when logout is clicked
+            window.location.href = 'login.html';
+        }
+
+        // Close dropdown when clicking outside
+        window.onclick = function(event) {
+            const dropdown = document.getElementById('hamburgerDropdown');
+            const hamburger = document.querySelector('.hamburger-menu');
+            if (!hamburger.contains(event.target)) {
+                dropdown.classList.remove('show');
+            }
+        }
+        
+        // Partners modal functionality
+        function togglePartnersModal() {
+            console.log('togglePartnersModal called');
+            const modal = document.getElementById('partners-modal');
+            console.log('Modal found:', modal);
+            console.log('Current display:', modal.style.display);
+            if (modal.style.display === 'none' || modal.style.display === '') {
+                modal.style.display = 'flex';
+                console.log('Showing modal');
+                loadPartnersList();
+            } else {
+                modal.style.display = 'none';
+                console.log('Hiding modal');
+            }
+        }
+        
+        function loadPartnersList() {
+            const partnersList = document.getElementById('partners-list');
+            partnersList.innerHTML = '';
+            
+            // Get partners from localStorage
+            let partners = JSON.parse(localStorage.getItem('selectedPartners') || '[]');
+            
+            console.log('Loading partners for modal:', partners);
+            
+            if (partners.length === 0) {
+                partnersList.innerHTML = '<div style="text-align: center; color: #666; font-family: Monaco; font-size: 16px; padding: 20px;">No partners selected yet</div>';
+                return;
+            }
+            
+            partners.forEach((partner, index) => {
+                // Create the exact same structure as in the partners section
+                const partnerDiv = document.createElement('div');
+                partnerDiv.className = 'input-box-wrapper name-wrapper';
+                partnerDiv.style.cssText = `
+                    margin: 5px 0;
+                    position: relative;
+                `;
+                
+                // Get the role icon and apply the correct role class based on partner type
+                let roleIcon = '';
+                let roleClass = '';
+                if (partner.type === 'Admin') {
+                    roleIcon = 'Assets/Admin-c.png';
+                    roleClass = 'admin-role';
+                } else if (partner.type === 'Partner') {
+                    roleIcon = 'Assets/Partner-c.png';
+                    roleClass = 'partner-role';
+                } else if (partner.type === 'Skip') {
+                    roleIcon = 'Assets/Skip.png';
+                    roleClass = 'normal-role';
+                } else {
+                    roleIcon = 'Assets/Partner-c.png'; // default
+                    roleClass = 'partner-role';
+                }
+                
+                // Apply the role class to the partnerDiv
+                partnerDiv.classList.add(roleClass);
+                
+                partnerDiv.innerHTML = `
+                    <span class="input-number">${index + 1}</span>
+                    <div class="selected-role-display" style="display: flex;">
+                        <span class="selected-role-text">${partner.name || 'Partner ' + (index + 1)}</span>
+                        <div class="role-icon-container">
+                            <img src="${roleIcon}" alt="${partner.type || 'Partner'}" class="role-icon">
+                            <img src="Assets/Remove.png" alt="Remove" class="remove-role-icon" onclick="removePartnerFromModal(${index})">
+                        </div>
+                    </div>
+                `;
+                
+                partnersList.appendChild(partnerDiv);
+            });
+        }
+        
+        function removePartner(index) {
+            let partners = JSON.parse(localStorage.getItem('selectedPartners') || '[]');
+            partners.splice(index, 1);
+            localStorage.setItem('selectedPartners', JSON.stringify(partners));
+            loadPartnersList();
+        }
+        
+        function removePartnerFromModal(index) {
+            // Remove from localStorage
+            let partners = JSON.parse(localStorage.getItem('selectedPartners') || '[]');
+            if (partners.length > index) {
+                partners.splice(index, 1);
+                localStorage.setItem('selectedPartners', JSON.stringify(partners));
+            }
+            
+            // Reload the partners list
+            loadPartnersList();
+            
+            console.log('Partner removed from modal:', index);
+        }
+        
+        // Close modal when clicking outside
+        document.getElementById('partners-modal').addEventListener('click', function(e) {
+            if (e.target === this) {
+                this.style.display = 'none';
+            }
+        });
+        
+    </script>
+</body>
+</html>

@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Real Estate Website</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header class="header">
+        <div class="logo">
+            <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 36 36" fill="none">
+                <path d="M16.997 9.75035L22.2859 8.02875L18.809 13.0927L17.04 15.6691L8.69576 27.8222C8.2351 28.4931 8.35053 29.4725 8.96539 30.11L11.841 33.0911C12.3286 33.5967 13.026 33.7741 13.6158 33.5425L25.7764 28.768C26.6644 28.4193 26.9885 27.2913 26.4681 26.3603L21.7228 17.87L20.2174 20.021L22.9533 26.1238L12.998 30.3368L20.2174 20.021L21.7228 17.87L26.6229 10.8683C27.0886 10.2028 26.9817 9.22465 26.373 8.58213L21.3458 3.27564C20.8234 2.72417 20.0576 2.55747 19.4454 2.86197L14.0825 5.52975C13.325 5.90656 13.038 6.8794 13.4302 7.74089L17.04 15.6691L18.809 13.0927L16.997 9.75035Z" fill="url(#paint0_linear_2_359)"/>
+                <defs>
+                    <linearGradient id="paint0_linear_2_359" x1="12.8601" y1="5.72792" x2="22.5551" y2="30.4205" gradientUnits="userSpaceOnUse">
+                        <stop stop-color="white"/>
+                        <stop offset="0.701923" stop-color="#F6F6F6"/>
+                        <stop offset="1" stop-color="#999999"/>
+                    </linearGradient>
+                </defs>
+            </svg>
+        </div>
+        <div class="hamburger-menu" onclick="toggleMenu()">
+            <span class="hamburger-line"></span>
+            <span class="hamburger-line"></span>
+            <span class="hamburger-line"></span>
+            <div class="hamburger-dropdown" id="hamburgerDropdown">
+                <button class="logout-button" onclick="handleLogout()">Logout</button>
+            </div>
+        </div>
+    </header>
+    
+    <div class="container">
+        <span class="container-text">New Plot Entry</span>
+        <button class="add-button" onclick="navigateToProjectName()">
+            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32" fill="none">
+                <circle cx="16" cy="16" r="14.5" stroke="black" stroke-width="2"/>
+            </svg>
+            <span class="add-button-text">+</span>
+        </button>
+    </div>
+    
+    <div class="container agent-container">
+        <span class="container-text">Register as an Agent</span>
+        <button class="add-button" onclick="navigateToAgentRegistration()">
+            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32" fill="none">
+                <circle cx="16" cy="16" r="14.5" stroke="black" stroke-width="2"/>
+            </svg>
+            <span class="add-button-text">+</span>
+        </button>
+    </div>
+    
+    <div class="separator-line"></div>
+    
+    <div class="projects-text">Projects</div>
+    
+    <div class="filter-buttons-container">
+        <button class="filter-button active" onclick="selectFilter('admin')">Admin</button>
+        <button class="filter-button" onclick="selectFilter('partner')">Partner</button>
+        <button class="filter-button" onclick="selectFilter('agent')">Agent</button>
+    </div>
+    
+    <!-- Completed Project Display -->
+    <div id="completed-project" class="project-card" style="display: none; margin-top: 20px; padding: 20px; background: #f5f5f5; border-radius: 10px; border: 1px solid #ddd; max-width: 350px; margin-left: auto; margin-right: auto;">
+        <div style="display: flex; justify-content: space-between; align-items: center;">
+            <div>
+                <h3 id="project-name-display" style="margin: 0 0 5px 0; color: #333; font-family: Monaco; font-size: 18px;">Project Name</h3>
+                <p id="project-owner-display" style="margin: 0; color: #666; font-family: Monaco; font-size: 14px;">Owner's Name</p>
+            </div>
+            <div style="display: flex; gap: 10px;">
+                <button onclick="viewProject()" style="padding: 8px 16px; background: #FF5E00; color: white; border: none; border-radius: 5px; cursor: pointer; font-family: Monaco; font-size: 12px;">View</button>
+                <button onclick="editProject()" style="padding: 8px 16px; background: #666; color: white; border: none; border-radius: 5px; cursor: pointer; font-family: Monaco; font-size: 12px;">Edit</button>
+            </div>
+        </div>
+    </div>
+    
+    <main class="main-content">
+        <!-- Main content will go here -->
+    </main>
+    
+    <script>
+        // Check for completed project on page load
+        window.onload = function() {
+            // Check if user is logged in and has accepted terms
+            const userLoggedIn = localStorage.getItem('userLoggedIn');
+            const termsAccepted = localStorage.getItem('termsAccepted');
+            
+            if (userLoggedIn !== 'true' || termsAccepted !== 'true') {
+                // User is not logged in or hasn't accepted terms, redirect to login
+                window.location.href = 'login.html';
+                return;
+            }
+            
+            checkForCompletedProject();
+        };
+
+        function checkForCompletedProject() {
+            const projectCompleted = localStorage.getItem('projectCompleted');
+            const projectName = localStorage.getItem('currentProjectName');
+            
+            if (projectCompleted === 'true' && projectName) {
+                // Display the completed project
+                document.getElementById('project-name-display').textContent = projectName;
+                document.getElementById('project-owner-display').textContent = "Owner's Name";
+                document.getElementById('completed-project').style.display = 'block';
+            }
+        }
+
+        function navigateToProjectName() {
+            window.location.href = 'project-name.html';
+        }
+
+        function navigateToAgentRegistration() {
+            // Navigate to agent registration page when clicked
+            // You can create an agent-registration.html page later
+            alert('Agent registration feature coming soon!');
+        }
+
+        function selectFilter(filterType) {
+            // Remove active class from all filter buttons
+            const buttons = document.querySelectorAll('.filter-button');
+            buttons.forEach(button => button.classList.remove('active'));
+            
+            // Add active class to clicked button
+            event.target.classList.add('active');
+            
+            // You can add logic here to filter projects based on the selected type
+            console.log('Selected filter:', filterType);
+        }
+
+        function viewProject() {
+            // Navigate to plot marking page to view the project
+            window.location.href = 'plot_marking.html';
+        }
+
+        function editProject() {
+            // Navigate to layout photo page to edit the project
+            window.location.href = 'layout_photo.html';
+        }
+
+        function toggleMenu() {
+            const dropdown = document.getElementById('hamburgerDropdown');
+            dropdown.classList.toggle('show');
+        }
+
+        function handleLogout() {
+            // Clear login and terms status
+            localStorage.removeItem('userLoggedIn');
+            localStorage.removeItem('termsAccepted');
+            localStorage.removeItem('userPhone');
+            
+            // Navigate to login page when logout is clicked
+            window.location.href = 'login.html';
+        }
+
+        // Close dropdown when clicking outside
+        window.onclick = function(event) {
+            const dropdown = document.getElementById('hamburgerDropdown');
+            const hamburger = document.querySelector('.hamburger-menu');
+            if (!hamburger.contains(event.target)) {
+                dropdown.classList.remove('show');
+            }
+        }
+    </script>
+</body>
+</html>
