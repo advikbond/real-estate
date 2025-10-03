@@ -616,7 +616,7 @@
         };
 
         // API utility functions
-        const API_BASE_URL = 'https://real-estate-backend.onrender.com';
+        const API_BASE_URL = 'https://real-estate-backendd.onrender.com';
 
         async function createProject(projectName) {
             try {
@@ -660,13 +660,25 @@
                 throw new Error('No project ID available');
             }
             try {
-                const response = await fetch(`${API_BASE_URL}/projects/${currentProjectId}/partners`, {
+                const response = await fetch(`${API_BASE_URL}/api/projects/${currentProjectId}/partners`, {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json',
                     },
                     body: JSON.stringify({ partners, projectName })
                 });
+                
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                }
+                
+                const contentType = response.headers.get('content-type');
+                if (!contentType || !contentType.includes('application/json')) {
+                    const text = await response.text();
+                    console.error('Non-JSON response:', text);
+                    throw new Error('Server returned non-JSON response. Check if backend is running.');
+                }
+                
                 const result = await response.json();
                 if (result.success) {
                     projectData.partners = partners;
@@ -689,7 +701,7 @@
                 throw new Error('No project ID available');
             }
             try {
-                const response = await fetch(`${API_BASE_URL}/projects/${currentProjectId}/brokerages`, {
+                const response = await fetch(`${API_BASE_URL}/api/projects/${currentProjectId}/brokerages`, {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json',
@@ -716,7 +728,7 @@
                 throw new Error('No project ID available');
             }
             try {
-                const response = await fetch(`${API_BASE_URL}/projects/${currentProjectId}/agents`, {
+                const response = await fetch(`${API_BASE_URL}/api/projects/${currentProjectId}/agents`, {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json',
@@ -748,7 +760,7 @@
                     formData.append('files', file);
                 });
 
-                const response = await fetch(`${API_BASE_URL}/projects/${currentProjectId}/media`, {
+                const response = await fetch(`${API_BASE_URL}/api/projects/${currentProjectId}/media`, {
                     method: 'POST',
                     body: formData
                 });
