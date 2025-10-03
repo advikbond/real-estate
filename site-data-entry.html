@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Site Data Entry - Real Estate Website</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        @media screen and (max-width: 768px) {
+            .responsive-container { width: 90% !important; max-width: 342px; margin-left: auto !important; margin-right: auto !important; }
+            .responsive-header-text { font-size: 18px !important; height: 45px !important; }
+        }
+        @media screen and (max-width: 480px) {
+            .responsive-container { width: 95% !important; }
+            .responsive-header-text { font-size: 16px !important; height: 40px !important; }
+        }
+        @media screen and (max-width: 360px) {
+            .responsive-container { width: 98% !important; }
+            .responsive-header-text { font-size: 14px !important; height: 35px !important; }
+        }
+    </style>
+</head>
+<body>
+    <header class="project-header">
+        <div class="project-header-content">
+            <div class="back-container">
+                <img src="Assets/Back iconn.png" alt="Back" class="back-icon" onclick="goBackToPrevious()">
+            </div>
+            <span class="project-text-center">Project</span>
+            <img src="Assets/Project.png" alt="Project" class="project-header-icon">
+        </div>
+    </header>
+
+    <div class="next-page-container"></div>
+
+    <div class="responsive-container" style="margin-top: 10px; color: #000; -webkit-text-stroke-width: 0.5px; -webkit-text-stroke-color: #000; font-family: Monaco; font-size: 30px; font-style: normal; font-weight: 400; line-height: normal; letter-spacing: 1.5px;">
+        Site Data Entry
+    </div>
+
+    <div id="plot-badges-row" class="responsive-container" style="margin-top: 10px; display: flex; gap: 10px; align-items: center; flex-wrap: wrap;"></div>
+
+    <div class="responsive-container" id="entries-container" style="margin-top: 10px; display: flex; flex-direction: column; gap: 20px;">
+        <div class="entry" data-index="1" style="display: flex; flex-direction: column; align-items: flex-start;">
+            <div class="entry-box" style="margin-top: 5px; width: 319px; height: 75px; flex-shrink: 0; border-radius: 15px; border: 2px solid #F28482; background: rgba(242, 132, 130, 0.46); box-shadow: -4px -4px 4px 0 rgba(0, 0, 0, 0.25); position: relative;">
+                <input type="file" accept="image/*" style="display:none;" id="upload-input-1">
+                <div class="right-icon" id="right-icon-1" style="position: absolute; right: 10px; top: 50%; transform: translateY(-50%); cursor: pointer;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="30" height="25" viewBox="0 0 30 25" fill="none">
+                      <path d="M9.67383 0.5H20.3271C20.4545 0.499954 20.5783 0.538721 20.6816 0.610352C20.7843 0.681617 20.8619 0.781879 20.9043 0.896484V0.897461L22.0293 4.01562L22.1484 4.3457H27.2227C28.4863 4.34593 29.5 5.35737 29.5 6.59375V22.2529C29.4999 23.4892 28.4862 24.4998 27.2227 24.5H2.77734C1.5138 24.4998 0.500099 23.4892 0.5 22.2529V6.59375L0.511719 6.36426C0.627797 5.23456 1.59278 4.34592 2.77734 4.3457H7.85059L7.96973 4.0166L9.09863 0.898438L9.09961 0.896484C9.18328 0.66333 9.41196 0.5 9.67383 0.5Z" stroke="white"/>
+                    </svg>
+                </div>
+            </div>
+        </div>
+
+        <div class="entry" data-index="2" style="display: flex; flex-direction: column; align-items: flex-start;">
+            <div class="entry-box" style="margin-top: 5px; width: 319px; height: 75px; flex-shrink: 0; border-radius: 15px; border: 2px solid #F28482; background: rgba(242, 132, 130, 0.46); box-shadow: -4px -4px 4px 0 rgba(0, 0, 0, 0.25); position: relative;">
+                <input type="file" accept="image/*" style="display:none;" id="upload-input-2">
+                <div class="right-icon" id="right-icon-2" style="position: absolute; right: 10px; top: 50%; transform: translateY(-50%); cursor: pointer;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="30" height="25" viewBox="0 0 30 25" fill="none">
+                      <path d="M9.67383 0.5H20.3271C20.4545 0.499954 20.5783 0.538721 20.6816 0.610352C20.7843 0.681617 20.8619 0.781879 20.9043 0.896484V0.897461L22.0293 4.01562L22.1484 4.3457H27.2227C28.4863 4.34593 29.5 5.35737 29.5 6.59375V22.2529C29.4999 23.4892 28.4862 24.4998 27.2227 24.5H2.77734C1.5138 24.4998 0.500099 23.4892 0.5 22.2529V6.59375L0.511719 6.36426C0.627797 5.23456 1.59278 4.34592 2.77734 4.3457H7.85059L7.96973 4.0166L9.09863 0.898438L9.09961 0.896484C9.18328 0.66333 9.41196 0.5 9.67383 0.5Z" stroke="white"/>
+                    </svg>
+                </div>
+            </div>
+        </div>
+
+        <div class="entry" data-index="3" style="display: flex; flex-direction: column; align-items: flex-start;">
+            <div class="entry-box" style="margin-top: 5px; width: 319px; height: 75px; flex-shrink: 0; border-radius: 15px; border: 2px solid #F28482; background: rgba(242, 132, 130, 0.46); box-shadow: -4px -4px 4px 0 rgba(0, 0, 0, 0.25); position: relative;">
+                <input type="file" accept="image/*" style="display:none;" id="upload-input-3">
+                <div class="right-icon" id="right-icon-3" style="position: absolute; right: 10px; top: 50%; transform: translateY(-50%); cursor: pointer;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="30" height="25" viewBox="0 0 30 25" fill="none">
+                      <path d="M9.67383 0.5H20.3271C20.4545 0.499954 20.5783 0.538721 20.6816 0.610352C20.7843 0.681617 20.8619 0.781879 20.9043 0.896484V0.897461L22.0293 4.01562L22.1484 4.3457H27.2227C28.4863 4.34593 29.5 5.35737 29.5 6.59375V22.2529C29.4999 23.4892 28.4862 24.4998 27.2227 24.5H2.77734C1.5138 24.4998 0.500099 23.4892 0.5 22.2529V6.59375L0.511719 6.36426C0.627797 5.23456 1.59278 4.34592 2.77734 4.3457H7.85059L7.96973 4.0166L9.09863 0.898438L9.09961 0.896484C9.18328 0.66333 9.41196 0.5 9.67383 0.5Z" stroke="white"/>
+                    </svg>
+                </div>
+            </div>
+        </div>
+
+        <div class="entry" data-index="4" style="display: flex; flex-direction: column; align-items: flex-start;">
+            <div class="entry-box" style="margin-top: 5px; width: 319px; height: 75px; flex-shrink: 0; border-radius: 15px; border: 2px solid #F28482; background: rgba(242, 132, 130, 0.46); box-shadow: -4px -4px 4px 0 rgba(0, 0, 0, 0.25); position: relative;">
+                <input type="file" accept="image/*" style="display:none;" id="upload-input-4">
+                <div class="right-icon" id="right-icon-4" style="position: absolute; right: 10px; top: 50%; transform: translateY(-50%); cursor: pointer;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="30" height="25" viewBox="0 0 30 25" fill="none">
+                      <path d="M9.67383 0.5H20.3271C20.4545 0.499954 20.5783 0.538721 20.6816 0.610352C20.7843 0.681617 20.8619 0.781879 20.9043 0.896484V0.897461L22.0293 4.01562L22.1484 4.3457H27.2227C28.4863 4.34593 29.5 5.35737 29.5 6.59375V22.2529C29.4999 23.4892 28.4862 24.4998 27.2227 24.5H2.77734C1.5138 24.4998 0.500099 23.4892 0.5 22.2529V6.59375L0.511719 6.36426C0.627797 5.23456 1.59278 4.34592 2.77734 4.3457H7.85059L7.96973 4.0166L9.09863 0.898438L9.09961 0.896484C9.18328 0.66333 9.41196 0.5 9.67383 0.5Z" stroke="white"/>
+                    </svg>
+                </div>
+            </div>
+        </div>
+
+        
+    </div>
+
+    <main class="main-content"></main>
+
+    <script>
+        // Clear saved data only on full page refresh
+        (function clearOnRefresh(){
+            try {
+                var navEntries = (performance && performance.getEntriesByType) ? performance.getEntriesByType('navigation') : [];
+                var navType = navEntries && navEntries[0] ? navEntries[0].type : (performance && performance.navigation ? (performance.navigation.type === 1 ? 'reload' : '') : '');
+                if (navType === 'reload') {
+                    localStorage.removeItem('siteDataByPlot');
+                    localStorage.removeItem('plotMarkingData');
+                    localStorage.removeItem('uploadedImageData');
+                    localStorage.removeItem('imageTooLarge');
+                }
+            } catch(e) { /* noop */ }
+        })();
+
+        function goBackToPrevious() {
+            window.location.href = 'index.html#upload';
+        }
+        let activePlotIndex = 0; // default active is first plot
+
+        function loadSiteDataForPlot(plotNumber) {
+            try {
+                const raw = localStorage.getItem('siteDataByPlot');
+                const parsed = raw ? JSON.parse(raw) : {};
+                return parsed[String(plotNumber)] || {};
+            } catch(e) { return {}; }
+        }
+
+        function saveSiteDataForPlot(plotNumber, data) {
+            try {
+                const raw = localStorage.getItem('siteDataByPlot');
+                const parsed = raw ? JSON.parse(raw) : {};
+                parsed[String(plotNumber)] = data;
+                localStorage.setItem('siteDataByPlot', JSON.stringify(parsed));
+            } catch(e) { console.error('Failed to save site data for plot', e); }
+        }
+
+        function renderPlotBadgesFromStorage() {
+            try {
+                const data = localStorage.getItem('plotMarkingData');
+                const badgesRow = document.getElementById('plot-badges-row');
+                if (!badgesRow) return;
+                badgesRow.innerHTML = '';
+                if (!data) return;
+                const parsed = JSON.parse(data);
+                const plots = (parsed && parsed.plots) ? parsed.plots : [];
+                plots.forEach((plot, idx) => {
+                    const isActive = idx === activePlotIndex;
+                    const wrapper = document.createElement('div');
+                    wrapper.style.position = 'relative';
+                    wrapper.style.width = '48px';
+                    wrapper.style.height = '48px';
+                    wrapper.style.flexShrink = '0';
+                    wrapper.style.cursor = 'pointer';
+
+                    const circleFill = isActive ? '#FFFFFF' : '#E96B68';
+                    const circleStroke = isActive ? '#E96B68' : 'none';
+                    const numberColor = isActive ? '#E96B68' : '#FFFFFF';
+
+                    wrapper.innerHTML = `
+                        <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 48 48" fill="none">
+                          <circle cx="24" cy="24" r="24" fill="${circleFill}" stroke="${circleStroke}"/>
+                        </svg>
+                    `;
+
+                    const label = document.createElement('span');
+                    label.textContent = String(idx + 1);
+                    label.style.position = 'absolute';
+                    label.style.top = '50%';
+                    label.style.left = '50%';
+                    label.style.transform = 'translate(-50%, -50%)';
+                    label.style.color = numberColor;
+                    label.style.fontFamily = 'Monaco';
+                    label.style.fontSize = '20px';
+
+                    wrapper.addEventListener('click', function() {
+                        activePlotIndex = idx;
+                        renderPlotBadgesFromStorage();
+                        renderEntriesFromStorage();
+                    });
+
+                    badgesRow.appendChild(wrapper);
+                    wrapper.appendChild(label);
+                });
+            } catch (e) {
+                console.error('Failed to render plot badges:', e);
+            }
+        }
+        function renderEntriesFromStorage() {
+            const container = document.getElementById('entries-container');
+            if (!container) return;
+            container.innerHTML = '';
+            const labels = ['Sale Deed', 'Mother Deed', 'EC', 'Others'];
+            const currentPlotNumber = activePlotIndex + 1;
+            const currentData = loadSiteDataForPlot(currentPlotNumber);
+            for (let i = 1; i <= 4; i++) {
+                const entry = document.createElement('div');
+                entry.className = 'entry';
+                entry.setAttribute('data-index', String(i));
+                entry.style.display = 'flex';
+                entry.style.flexDirection = 'column';
+                entry.style.alignItems = 'flex-start';
+                const rightIconSvg = i === 4
+                  ? `<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"32\" height=\"32\" viewBox=\"0 0 32 32\" fill=\"none\">\n                        <circle cx=\"16\" cy=\"16\" r=\"16\" fill=\"#E96B68\"/>\n                        <path d=\"M16 10V22M10 16H22\" stroke=\"white\" stroke-width=\"2\" stroke-linecap=\"round\"/>\n                     </svg>`
+                  : `<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"30\" height=\"25\" viewBox=\"0 0 30 25\" fill=\"none\">\n                        <path d=\"M9.67383 0.5H20.3271C20.4545 0.499954 20.5783 0.538721 20.6816 0.610352C20.7843 0.681617 20.8619 0.781879 20.9043 0.896484V0.897461L22.0293 4.01562L22.1484 4.3457H27.2227C28.4863 4.34593 29.5 5.35737 29.5 6.59375V22.2529C29.4999 23.4892 28.4862 24.4998 27.2227 24.5H2.77734C1.5138 24.4998 0.500099 23.4892 0.5 22.2529V6.59375L0.511719 6.36426C0.627797 5.23456 1.59278 4.34592 2.77734 4.3457H7.85059L7.96973 4.0166L9.09863 0.898438L9.09961 0.896484C9.18328 0.66333 9.41196 0.5 9.67383 0.5Z\" stroke=\"white\"/>\n                     </svg>`;
+                entry.innerHTML = `
+                    <div class=\"entry-box\" style=\"margin-top: 5px; width: 319px; height: 75px; flex-shrink: 0; border-radius: 15px; border: 2px solid #F28482; background: rgba(242, 132, 130, 0.46); box-shadow: -4px -4px 4px 0 rgba(0, 0, 0, 0.25); position: relative;\">\n                        <div style=\"position:absolute; left: 15px; top: 50%; transform: translateY(-50%); color:#000; font-family: Monaco; font-size: 18px;\">${labels[i-1]}</div>\n                        <input type=\"file\" accept=\"image/*\" style=\"display:none;\" id=\"upload-input-${i}\">\n                        <div class=\"right-icon\" id=\"right-icon-${i}\" style=\"position: absolute; right: 10px; top: 50%; transform: translateY(-50%); cursor: pointer;\">\n                            ${rightIconSvg}\n                        </div>\n                    </div>\n                `;
+                container.appendChild(entry);
+            }
+            // attach listeners
+            for (let i = 1; i <= 4; i++) {
+                const icon = document.getElementById('right-icon-' + i);
+                const input = document.getElementById('upload-input-' + i);
+                const entryBox = icon ? icon.closest('.entry-box') : null;
+                if (!icon || !input || !entryBox) continue;
+                // initialize icon from saved state per plot
+                if (currentData && currentData['box' + i]) {
+                    icon.innerHTML = '<img src="Assets/Brokerage-c.png" alt="Uploaded" style="width: 30px; height: 25px; object-fit: contain;">';
+                }
+                icon.addEventListener('click', function() { input.click(); });
+                entryBox.addEventListener('click', function(e) { if (!(e.target && (e.target.tagName === 'INPUT'))) input.click(); });
+                input.addEventListener('change', function(e) {
+                    if (e.target.files && e.target.files.length > 0) {
+                        icon.innerHTML = '<img src="Assets/Brokerage-c.png" alt="Uploaded" style="width: 30px; height: 25px; object-fit: contain;">';
+                        const updated = loadSiteDataForPlot(currentPlotNumber);
+                        updated['box' + i] = true;
+                        saveSiteDataForPlot(currentPlotNumber, updated);
+                    }
+                });
+            }
+            // Spacer to ensure content isn't hidden behind fixed buttons
+            const spacer = document.createElement('div');
+            spacer.style.height = '120px';
+            container.appendChild(spacer);
+
+            // Bottom-fixed buttons
+            const buttonsRow = document.createElement('div');
+            buttonsRow.style.display = 'flex';
+            buttonsRow.style.justifyContent = 'space-between';
+            buttonsRow.style.alignItems = 'center';
+            buttonsRow.style.position = 'fixed';
+            buttonsRow.style.bottom = '24px';
+            buttonsRow.style.left = '50%';
+            buttonsRow.style.transform = 'translateX(-50%)';
+            buttonsRow.style.width = '100%';
+            buttonsRow.style.maxWidth = '412px';
+            buttonsRow.style.padding = '0 16px';
+            buttonsRow.style.zIndex = '101';
+
+            const skipBtn = document.createElement('button');
+            skipBtn.className = 'save-button';
+            skipBtn.textContent = 'Skip';
+            skipBtn.onclick = function() { window.location.href = 'index.html#new-project'; };
+
+            const nextBtn = document.createElement('button');
+            nextBtn.className = 'save-button';
+            nextBtn.textContent = 'Next';
+            nextBtn.onclick = function() { window.location.href = 'index.html#new-project'; };
+
+            buttonsRow.appendChild(skipBtn);
+            buttonsRow.appendChild(nextBtn);
+            document.body.appendChild(buttonsRow);
+        }
+        renderPlotBadgesFromStorage();
+        renderEntriesFromStorage();
+        // Bottom buttons are wired via inline onclick to match photos/videos screen styling
+    </script>
+</body>
+</html>

@@ -1,0 +1,16 @@
+# Dependencies
+node_modules/
+**/node_modules/
+
+# Logs
+*.log
+
+# OS
+.DS_Store
+
+# Build
+dist/
+build/
+
+# Uploads (optional)
+backend/uploads/

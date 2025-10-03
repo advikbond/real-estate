@@ -108,38 +108,20 @@
     </style>
 </head>
 <body>
-    <header class="header">
-        <div class="logo">
-            <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 36 36" fill="none">
-                <path d="M16.997 9.75035L22.2859 8.02875L18.809 13.0927L17.04 15.6691L8.69576 27.8222C8.2351 28.4931 8.35053 29.4725 8.96539 30.11L11.841 33.0911C12.3286 33.5967 13.026 33.7741 13.6158 33.5425L25.7764 28.768C26.6644 28.4193 26.9885 27.2913 26.4681 26.3603L21.7228 17.87L20.2174 20.021L22.9533 26.1238L12.998 30.3368L20.2174 20.021L21.7228 17.87L26.6229 10.8683C27.0886 10.2028 26.9817 9.22465 26.373 8.58213L21.3458 3.27564C20.8234 2.72417 20.0576 2.55747 19.4454 2.86197L14.0825 5.52975C13.325 5.90656 13.038 6.8794 13.4302 7.74089L17.04 15.6691L18.809 13.0927L16.997 9.75035Z" fill="url(#paint0_linear_2_359)"/>
-                <defs>
-                    <linearGradient id="paint0_linear_2_359" x1="12.8601" y1="5.72792" x2="22.5551" y2="30.4205" gradientUnits="userSpaceOnUse">
-                        <stop stop-color="white"/>
-                        <stop offset="0.701923" stop-color="#F6F6F6"/>
-                        <stop offset="1" stop-color="#999999"/>
-                    </linearGradient>
-                </defs>
-            </svg>
-        </div>
-        <div class="hamburger-menu" onclick="toggleMenu()">
-            <span class="hamburger-line"></span>
-            <span class="hamburger-line"></span>
-            <span class="hamburger-line"></span>
-            <div class="hamburger-dropdown" id="hamburgerDropdown">
-                <button class="logout-button" onclick="handleLogout()">Logout</button>
+    <header class="project-header">
+        <div class="project-header-content">
+            <div class="back-container">
+                <img src="../Assets/Back iconn.png" alt="Back" class="back-icon" onclick="goBackToNextPage()">
             </div>
+            <span class="project-text-center">Project</span>
+            <img src="../Assets/Project.png" alt="Project" class="project-header-icon">
         </div>
     </header>
     
     <div class="next-page-container">
     </div>
     
-    <button class="back-button" onclick="goBackToNextPage()">
-        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32" fill="none">
-            <circle cx="16" cy="16" r="14.5" stroke="white" stroke-width="2"/>
-        </svg>
-        <span class="back-button-text">←</span>
-    </button>
+    
     
     <div class="responsive-container responsive-header-text" style="margin-top: 65px; height: 50px; flex-shrink: 0; border-radius: 15px; background: #FFF; color: #000; font-family: Monaco; font-size: 20px; font-style: normal; font-weight: 400; line-height: normal; display: flex; align-items: center; justify-content: center;">
         Site Layout
@@ -181,20 +163,8 @@
     
     <input type="file" id="photo-upload" accept="image/*" multiple style="display: none;" onchange="handlePhotoUpload(event)">
     
-    <div class="responsive-container" style="margin-top: 20px; display: flex; justify-content: space-between; align-items: center;">
-        <!-- Left side: SVG icon and text (hidden initially) -->
-        <div id="select-partners-container" style="display: none; flex-direction: column; align-items: center; flex: 1;">
-            <div id="select-partners-clickable" style="display: flex; flex-direction: column; align-items: center; cursor: pointer;" onclick="togglePartnersModal()">
-                <svg xmlns="http://www.w3.org/2000/svg" width="50" height="54" viewBox="0 0 50 54" fill="none" style="flex-shrink: 0;">
-                    <circle cx="25" cy="25" r="25" fill="white"/>
-                    <circle cx="25" cy="16" r="10" fill="#F28482"/>
-                    <path d="M39 40C39 36.287 37.525 32.726 34.8995 30.1005C32.274 27.475 28.713 26 25 26C21.287 26 17.726 27.475 15.1005 30.1005C12.475 32.726 11 36.287 11 40L25 40H39Z" fill="#F28482"/>
-                </svg>
-                <span style="color: #F28482; -webkit-text-stroke-width: 0.5px; -webkit-text-stroke-color: #F28482; font-family: Monaco; font-size: 14px; font-style: normal; font-weight: 400; line-height: normal; letter-spacing: 0.7px; margin-top: 5px;">Select Partners</span>
-            </div>
-        </div>
-        
-        <!-- Right side: Skip and Save buttons -->
+    <div class="responsive-container" style="margin-top: 20px; display: flex; justify-content: center; align-items: center;">
+        <!-- Skip and Save buttons -->
         <div style="display: flex; gap: 10px;">
             <button class="responsive-button" style="height: 50px; flex-shrink: 0; border-radius: 15px; background: #FFF; color: #000; font-family: Monaco; font-size: 20px; font-style: normal; font-weight: 400; line-height: normal; border: none; cursor: pointer;">Skip</button>
             <button id="save-btn" class="responsive-button" style="height: 50px; flex-shrink: 0; border-radius: 15px; background: #FF5E00; color: #FFF; font-family: Monaco; font-size: 20px; font-style: normal; font-weight: 400; line-height: normal; border: none; cursor: pointer; display: none;" onclick="saveAndGoToPlotMarking()">Save</button>
@@ -209,24 +179,6 @@
     <main class="main-content">
         <!-- Main content will go here -->
     </main>
-    
-    <!-- Partners Modal -->
-    <div id="partners-modal" class="partners-modal" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.5); z-index: 1000; justify-content: center; align-items: flex-end;">
-        <div class="partners-modal-content" style="width: 391px; height: 564px; flex-shrink: 0; border-radius: 15px 15px 0 0; border-top: 2px solid #F28482; border-right: 2px solid #F28482; border-left: 2px solid #F28482; background: #FFF; box-shadow: -4px -4px 4px 0 rgba(0, 0, 0, 0.25); position: relative;">
-            <!-- Top bar -->
-            <div style="width: 83px; height: 5px; background: rgba(242, 132, 130, 0.46); margin: 5px auto 0 auto; border-radius: 2.5px;"></div>
-            
-            <!-- Title -->
-            <div style="text-align: center; margin-top: 5px;">
-                <span style="color: #000; -webkit-text-stroke-width: 0.5px; -webkit-text-stroke-color: #000; font-family: Monaco; font-size: 30px; font-style: normal; font-weight: 400; line-height: normal; letter-spacing: 1.5px;">Select Partners</span>
-            </div>
-            
-            <!-- Partners List -->
-            <div id="partners-list" style="padding: 5px; margin-top: 5px; max-height: 450px; overflow-y: auto;">
-                <!-- Partners will be dynamically added here -->
-            </div>
-        </div>
-    </div>
     
     <script>
         // Global variables
@@ -269,9 +221,6 @@
                     
                     // Show tool icons container
                     document.getElementById('tool-icons-container').style.display = 'block';
-                    
-                    // Show select partners container
-                    document.getElementById('select-partners-container').style.display = 'flex';
                     
                     document.getElementById('save-btn').style.display = 'block';
                     console.log('Tools and save button should now be visible');
@@ -946,108 +895,6 @@ Plots: ${JSON.stringify(plots, null, 2)}`);
                 dropdown.classList.remove('show');
             }
         }
-        
-        // Partners modal functionality
-        function togglePartnersModal() {
-            console.log('togglePartnersModal called');
-            const modal = document.getElementById('partners-modal');
-            console.log('Modal found:', modal);
-            console.log('Current display:', modal.style.display);
-            if (modal.style.display === 'none' || modal.style.display === '') {
-                modal.style.display = 'flex';
-                console.log('Showing modal');
-                loadPartnersList();
-            } else {
-                modal.style.display = 'none';
-                console.log('Hiding modal');
-            }
-        }
-        
-        function loadPartnersList() {
-            const partnersList = document.getElementById('partners-list');
-            partnersList.innerHTML = '';
-            
-            // Get partners from localStorage
-            let partners = JSON.parse(localStorage.getItem('selectedPartners') || '[]');
-            
-            console.log('Loading partners for modal:', partners);
-            
-            if (partners.length === 0) {
-                partnersList.innerHTML = '<div style="text-align: center; color: #666; font-family: Monaco; font-size: 16px; padding: 20px;">No partners selected yet</div>';
-                return;
-            }
-            
-            partners.forEach((partner, index) => {
-                // Create the exact same structure as in the partners section
-                const partnerDiv = document.createElement('div');
-                partnerDiv.className = 'input-box-wrapper name-wrapper';
-                partnerDiv.style.cssText = `
-                    margin: 5px 0;
-                    position: relative;
-                `;
-                
-                // Get the role icon and apply the correct role class based on partner type
-                let roleIcon = '';
-                let roleClass = '';
-                if (partner.type === 'Admin') {
-                    roleIcon = 'Assets/Admin-c.png';
-                    roleClass = 'admin-role';
-                } else if (partner.type === 'Partner') {
-                    roleIcon = 'Assets/Partner-c.png';
-                    roleClass = 'partner-role';
-                } else if (partner.type === 'Skip') {
-                    roleIcon = 'Assets/Skip.png';
-                    roleClass = 'normal-role';
-                } else {
-                    roleIcon = 'Assets/Partner-c.png'; // default
-                    roleClass = 'partner-role';
-                }
-                
-                // Apply the role class to the partnerDiv
-                partnerDiv.classList.add(roleClass);
-                
-                partnerDiv.innerHTML = `
-                    <span class="input-number">${index + 1}</span>
-                    <div class="selected-role-display" style="display: flex;">
-                        <span class="selected-role-text">${partner.name || 'Partner ' + (index + 1)}</span>
-                        <div class="role-icon-container">
-                            <img src="${roleIcon}" alt="${partner.type || 'Partner'}" class="role-icon">
-                            <img src="Assets/Remove.png" alt="Remove" class="remove-role-icon" onclick="removePartnerFromModal(${index})">
-                        </div>
-                    </div>
-                `;
-                
-                partnersList.appendChild(partnerDiv);
-            });
-        }
-        
-        function removePartner(index) {
-            let partners = JSON.parse(localStorage.getItem('selectedPartners') || '[]');
-            partners.splice(index, 1);
-            localStorage.setItem('selectedPartners', JSON.stringify(partners));
-            loadPartnersList();
-        }
-        
-        function removePartnerFromModal(index) {
-            // Remove from localStorage
-            let partners = JSON.parse(localStorage.getItem('selectedPartners') || '[]');
-            if (partners.length > index) {
-                partners.splice(index, 1);
-                localStorage.setItem('selectedPartners', JSON.stringify(partners));
-            }
-            
-            // Reload the partners list
-            loadPartnersList();
-            
-            console.log('Partner removed from modal:', index);
-        }
-        
-        // Close modal when clicking outside
-        document.getElementById('partners-modal').addEventListener('click', function(e) {
-            if (e.target === this) {
-                this.style.display = 'none';
-            }
-        });
         
     </script>
 </body>

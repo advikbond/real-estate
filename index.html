@@ -127,6 +127,14 @@
                         <img src="Assets/New_project_entry.png" alt="New Project Entry" class="new-project-icon">
                     </div>
                 </div>
+
+                <!-- Projects Heading -->
+                <div id="projects-heading" style="margin-top: 20px; width: 100%; max-width: 412px;">
+                    <span style="display:block; text-align: left; font-family: Monaco; font-size: 20px; color: #000;">Projects</span>
+                </div>
+
+                <!-- Projects List Container -->
+                <div id="projects-list" style="margin-top: 10px; width: 100%; max-width: 412px; display: flex; flex-direction: column; gap: 12px;"></div>
             </main>
         </div>
     </div>
@@ -157,6 +165,13 @@
 
                 <!-- Next Button -->
                 <button class="next-button">Next</button>
+
+                <!-- Plot badges will render here -->
+                <div id="plot-badges" style="margin-top: 20px; display: flex; gap: 10px; align-items: center; flex-wrap: wrap;"></div>
+                <div id="plot-total-row" style="margin-top: 10px; display: none; flex-direction: column; align-items: center;">
+                    <span id="plot-total-text" style="font-family: Monaco; font-size: 16px; color: #333;"></span>
+                    <button id="plot-done-btn" class="save-button" style="margin-top: 10px; height: 40px; font-size: 18px;">Done</button>
+                </div>
 
                
             </main>
@@ -578,43 +593,14 @@
                 <input type="file" id="main-photo-upload-input" accept="image/*" multiple style="display: none;" onchange="handleMainPhotoUpload(event)">
                 
                 <!-- Bottom Section with Save Button -->
-                <div class="upload-bottom-section" style="display: flex; justify-content: space-between; align-items: center;">
-                    <!-- Left side: SVG icon and text (hidden initially) -->
-                    <div id="select-partners-container" style="display: none; flex-direction: column; align-items: center; flex: 1;">
-                        <div id="select-partners-clickable" style="display: flex; flex-direction: column; align-items: center; cursor: pointer;" onclick="togglePartnersModal()">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="50" height="54" viewBox="0 0 50 54" fill="none" style="flex-shrink: 0;">
-                                <circle cx="25" cy="25" r="25" fill="white"/>
-                                <circle cx="25" cy="16" r="10" fill="#F28482"/>
-                                <path d="M39 40C39 36.287 37.525 32.726 34.8995 30.1005C32.274 27.475 28.713 26 25 26C21.287 26 17.726 27.475 15.1005 30.1005C12.475 32.726 11 36.287 11 40L25 40H39Z" fill="#F28482"/>
-                            </svg>
-                            <span style="color: #F28482; -webkit-text-stroke-width: 0.5px; -webkit-text-stroke-color: #F28482; font-family: Monaco; font-size: 14px; font-style: normal; font-weight: 400; line-height: normal; letter-spacing: 0.7px; margin-top: 5px;">Select Partners</span>
-                        </div>
-                    </div>
-                    
-                    <!-- Right side: Next button -->
+                <div class="upload-bottom-section" style="display: flex; justify-content: flex-end; align-items: center;">
                     <div>
                         <button id="save-upload-btn" class="save-button" style="display: none;" onclick="saveAndGoToNextScreen()">Next</button>
                     </div>
                 </div>
             </main>
             
-            <!-- Partners Modal -->
-            <div id="partners-modal" class="partners-modal" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.5); z-index: 1000; justify-content: center; align-items: flex-end;">
-                <div class="partners-modal-content" style="width: 391px; height: 564px; flex-shrink: 0; border-radius: 15px 15px 0 0; border-top: 2px solid #F28482; border-right: 2px solid #F28482; border-left: 2px solid #F28482; background: #FFF; box-shadow: -4px -4px 4px 0 rgba(0, 0, 0, 0.25); position: relative;">
-                    <!-- Top bar -->
-                    <div style="width: 83px; height: 5px; background: rgba(242, 132, 130, 0.46); margin: 5px auto 0 auto; border-radius: 2.5px;"></div>
-                    
-                    <!-- Title -->
-                    <div style="text-align: center; margin-top: 5px;">
-                        <span style="color: #000; -webkit-text-stroke-width: 0.5px; -webkit-text-stroke-color: #000; font-family: Monaco; font-size: 30px; font-style: normal; font-weight: 400; line-height: normal; letter-spacing: 1.5px;">Select Partners</span>
-                    </div>
-                    
-                    <!-- Partners List -->
-                    <div id="partners-list" style="padding: 5px; margin-top: 5px; max-height: 450px; overflow-y: auto;">
-                        <!-- Partners will be dynamically added here -->
-                    </div>
-                </div>
-            </div>
+            
         </div>
     </div>
 
@@ -820,6 +806,207 @@
                 console.error('Failed to create project:', error);
             }
         });
+
+        // Render plot badges under project name on load
+        (function renderPlotBadgesUnderProjectName(){
+            try {
+                const badgeContainer = document.getElementById('plot-badges');
+                if (!badgeContainer) return;
+                const dataRaw = localStorage.getItem('plotMarkingData');
+                if (!dataRaw) { badgeContainer.innerHTML = ''; return; }
+                const parsed = JSON.parse(dataRaw);
+                const plots = Array.isArray(parsed?.plots) ? parsed.plots : [];
+                badgeContainer.innerHTML = '';
+                plots.forEach((plot, idx) => {
+                    const wrapper = document.createElement('div');
+                    wrapper.style.position = 'relative';
+                    wrapper.style.width = '48px';
+                    wrapper.style.height = '48px';
+                    wrapper.innerHTML = `
+                        <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 48 48" fill="none">
+                          <circle cx="24" cy="24" r="24" fill="white"/>
+                        </svg>
+                    `;
+                    const label = document.createElement('span');
+                    label.textContent = String(idx + 1);
+                    label.style.position = 'absolute';
+                    label.style.top = '50%';
+                    label.style.left = '50%';
+                    label.style.transform = 'translate(-50%, -50%)';
+                    label.style.color = '#E96B68';
+                    label.style.fontFamily = 'Monaco';
+                    label.style.fontSize = '20px';
+                    badgeContainer.appendChild(wrapper);
+                    wrapper.appendChild(label);
+                });
+
+                const totalRow = document.getElementById('plot-total-row');
+                const totalText = document.getElementById('plot-total-text');
+                const doneBtn = document.getElementById('plot-done-btn');
+                if (totalRow && totalText && doneBtn) {
+                    if (plots.length > 0) {
+                        totalRow.style.display = 'flex';
+                        totalText.textContent = 'Total plots: ' + plots.length;
+                        doneBtn.onclick = function(){ addProjectFromDraft(); };
+                    } else {
+                        totalRow.style.display = 'none';
+                    }
+                }
+            } catch (e) {
+                console.error('Failed to render plot badges under project name:', e);
+            }
+        })();
+
+        // Add a project from current draft and show it under Projects
+        function addProjectFromDraft() {
+            try {
+                const nameInput = document.getElementById('project-name-input');
+                const projectName = (nameInput && nameInput.value.trim()) || (localStorage.getItem('projectNameDraft') || '').trim();
+                if (!projectName) {
+                    alert('Please enter a project name');
+                    return;
+                }
+                const adminInput = document.getElementById('nameInput');
+                const adminName = adminInput && adminInput.value ? adminInput.value.trim() : '';
+                const createdAt = new Date();
+                const projectsRaw = localStorage.getItem('projects');
+                const projects = projectsRaw ? JSON.parse(projectsRaw) : [];
+                projects.push({
+                    id: Date.now(),
+                    name: projectName,
+                    admin: adminName,
+                    createdAt: createdAt.toISOString()
+                });
+                localStorage.setItem('projects', JSON.stringify(projects));
+
+                // Clear draft so next project starts fresh (data persists until refresh otherwise)
+                localStorage.removeItem('projectNameDraft');
+
+                // Show Project screen and render
+                document.getElementById('new-project-screen').classList.add('hidden');
+                document.getElementById('project-screen').classList.remove('hidden');
+                renderProjectsList();
+            } catch(e) {
+                console.error('Failed to add project:', e);
+            }
+        }
+
+        function formatDateForCard(isoString) {
+            try {
+                const d = new Date(isoString);
+                const day = String(d.getDate()).padStart(2, '0');
+                const month = String(d.getMonth() + 1).padStart(2, '0');
+                const year = d.getFullYear();
+                return `${day}/${month}/${year}`;
+            } catch(e) { return isoString; }
+        }
+
+        function renderProjectsList() {
+            try {
+                const list = document.getElementById('projects-list');
+                if (!list) return;
+                const projectsRaw = localStorage.getItem('projects');
+                const projects = projectsRaw ? JSON.parse(projectsRaw) : [];
+                list.innerHTML = '';
+                projects.forEach((p, idx) => {
+                    const row = document.createElement('div');
+                    row.style.display = 'flex';
+                    row.style.alignItems = 'center';
+                    row.style.gap = '8px';
+
+                    const num = document.createElement('div');
+                    num.textContent = String(idx + 1);
+                    num.style.color = '#F28482';
+                    num.style.fontFamily = 'Montserrat';
+                    num.style.fontSize = '20px';
+                    num.style.fontStyle = 'normal';
+                    num.style.fontWeight = '700';
+                    num.style.lineHeight = '20px';
+
+                    const card = document.createElement('div');
+                    card.style.width = '319px';
+                    card.style.height = '90px';
+                    card.style.flexShrink = '0';
+                    card.style.borderRadius = '15px';
+                    card.style.border = '2px solid rgba(242, 132, 130, 0.72)';
+                    card.style.background = 'rgba(242, 132, 130, 0.72)';
+                    card.style.boxShadow = '-4px -4px 4px 0 rgba(0, 0, 0, 0.25)';
+                    card.style.padding = '10px 12px';
+                    card.style.display = 'flex';
+                    card.style.flexDirection = 'column';
+                    card.style.justifyContent = 'space-between';
+
+                    const title = document.createElement('div');
+                    title.textContent = p.name;
+                    title.style.color = '#FFF';
+                    title.style.fontFamily = 'Monaco';
+                    title.style.fontSize = '16px';
+                    title.style.fontStyle = 'normal';
+                    title.style.fontWeight = '400';
+                    title.style.lineHeight = 'normal';
+
+                    const admin = document.createElement('div');
+                    admin.textContent = p.admin ? p.admin : '';
+                    admin.style.color = '#000';
+                    admin.style.fontFamily = 'Monaco';
+                    admin.style.fontSize = '14px';
+                    admin.style.fontStyle = 'normal';
+                    admin.style.fontWeight = '400';
+                    admin.style.lineHeight = 'normal';
+
+                    const date = document.createElement('div');
+                    date.textContent = formatDateForCard(p.createdAt);
+                    date.style.color = '#BE0300';
+                    date.style.fontFamily = 'Monaco';
+                    date.style.fontSize = '14px';
+                    date.style.fontStyle = 'normal';
+                    date.style.fontWeight = '400';
+                    date.style.lineHeight = 'normal';
+
+                    card.appendChild(title);
+                    card.appendChild(admin);
+                    card.appendChild(date);
+                    row.appendChild(num);
+                    row.appendChild(card);
+                    list.appendChild(row);
+                });
+            } catch(e) {
+                console.error('Failed to render projects list:', e);
+            }
+        }
+
+        // Render projects list on load in case there are existing entries
+        renderProjectsList();
+
+        // Persist project name until refresh
+        (function persistProjectName(){
+            try {
+                const input = document.getElementById('project-name-input');
+                if (!input) return;
+                const saved = localStorage.getItem('projectNameDraft') || '';
+                if (saved && !input.value) {
+                    input.value = saved;
+                }
+                input.addEventListener('input', function(){
+                    localStorage.setItem('projectNameDraft', input.value);
+                });
+            } catch(e) { /* noop */ }
+        })();
+
+        // Clear all relevant data on full page refresh (landing page)
+        (function clearOnRefresh(){
+            try {
+                var navEntries = (performance && performance.getEntriesByType) ? performance.getEntriesByType('navigation') : [];
+                var navType = navEntries && navEntries[0] ? navEntries[0].type : (performance && performance.navigation ? (performance.navigation.type === 1 ? 'reload' : '') : '');
+                if (navType === 'reload') {
+                    localStorage.removeItem('siteDataByPlot');
+                    localStorage.removeItem('plotMarkingData');
+                    localStorage.removeItem('uploadedImageData');
+                    localStorage.removeItem('imageTooLarge');
+                    localStorage.removeItem('projectNameDraft');
+                }
+            } catch(e) { /* noop */ }
+        })();
 
         // Hide new project screen when back button is clicked (from new project screen)
         document.querySelectorAll('.back-icon')[1].addEventListener('click', function() {
@@ -1900,16 +2087,55 @@
             document.getElementById('photos-videos-selection-screen').classList.remove('hidden');
         }
 
-        // Navigate to next screen (placeholder for now)
+        // Hash-based routing for returning to upload screen (from site-data-entry)
+        (function handleHashRouteToUpload(){
+            if (location.hash === '#upload') {
+                const photos = document.getElementById('photos-videos-selection-screen');
+                const upload = document.getElementById('upload-screen');
+                if (photos) photos.classList.add('hidden');
+                if (upload) upload.classList.remove('hidden');
+                // clear hash so refreshes don't keep forcing
+                history.replaceState('', document.title, window.location.pathname + window.location.search);
+            }
+        })();
+
+        // Hash-based routing to open New Project Name screen directly
+        (function handleHashRouteToNewProject(){
+            if (location.hash === '#new-project') {
+                const newProject = document.getElementById('new-project-screen');
+                if (newProject) newProject.classList.remove('hidden');
+                // clear hash to avoid re-trigger on refresh
+                history.replaceState('', document.title, window.location.pathname + window.location.search);
+                const input = document.getElementById('project-name-input');
+                if (input) input.focus();
+                // Hide Next button when arriving from Site Data Entry
+                const nextBtn = document.querySelector('.new-project-main-content .next-button');
+                if (nextBtn) nextBtn.style.display = 'none';
+            }
+        })();
+
+        // Navigate to Site Data Entry page
         function goToNextScreen() {
-            // This can be updated to navigate to the next screen in the flow
-            alert('Next screen functionality will be implemented here');
+            try {
+                const plotsForSave = Array.isArray(uploadPlots) ? uploadPlots : [];
+                const plotsPayload = { plots: plotsForSave.map((p, idx) => ({ number: idx + 1, ...p })) };
+                localStorage.setItem('plotMarkingData', JSON.stringify(plotsPayload));
+            } catch (e) {
+                console.error('Failed to save plotMarkingData:', e);
+            }
+            window.location.href = 'site-data-entry.html';
         }
 
-        // Save and navigate to next screen
+        // Save and navigate to Site Data Entry page
         function saveAndGoToNextScreen() {
-            // This can be updated to save data and navigate to the next screen
-            alert('Save functionality will be implemented here');
+            try {
+                const plotsForSave = Array.isArray(uploadPlots) ? uploadPlots : [];
+                const plotsPayload = { plots: plotsForSave.map((p, idx) => ({ number: idx + 1, ...p })) };
+                localStorage.setItem('plotMarkingData', JSON.stringify(plotsPayload));
+            } catch (e) {
+                console.error('Failed to save plotMarkingData:', e);
+            }
+            window.location.href = 'site-data-entry.html';
         }
 
         // Upload screen variables
@@ -1949,9 +2175,6 @@
                     
                     // Show tool icons container
                     document.getElementById('tool-icons-container').style.display = 'block';
-                    
-                    // Show select partners container
-                    document.getElementById('select-partners-container').style.display = 'flex';
                     
                     document.getElementById('save-upload-btn').style.display = 'block';
                     
@@ -2483,123 +2706,7 @@
             }
         }
         
-        // Partners modal functionality
-        function togglePartnersModal() {
-            console.log('togglePartnersModal called');
-            const modal = document.getElementById('partners-modal');
-            console.log('Modal found:', modal);
-            console.log('Current display:', modal.style.display);
-            if (modal.style.display === 'none' || modal.style.display === '') {
-                modal.style.display = 'flex';
-                console.log('Showing modal');
-                loadPartnersList();
-            } else {
-                modal.style.display = 'none';
-                console.log('Hiding modal');
-            }
-        }
-        
-        function loadPartnersList() {
-            const partnersList = document.getElementById('partners-list');
-            partnersList.innerHTML = '';
-            
-            // Get partners from projectData or localStorage
-            let partners = projectData.partners || JSON.parse(localStorage.getItem('selectedPartners') || '[]');
-            
-            console.log('Loading partners for modal:', partners);
-            
-            if (partners.length === 0) {
-                partnersList.innerHTML = '<div style="text-align: center; color: #666; font-family: Monaco; font-size: 16px; padding: 20px;">No partners selected yet</div>';
-                return;
-            }
-            
-            partners.forEach((partner, index) => {
-                // Create the exact same structure as in the partners section
-                const partnerDiv = document.createElement('div');
-                partnerDiv.className = 'input-box-wrapper name-wrapper';
-                partnerDiv.style.cssText = `
-                    margin: 5px 0;
-                    position: relative;
-                `;
-                
-                // Get the role icon and apply the correct role class based on partner type
-                let roleIcon = '';
-                let roleClass = '';
-                if (partner.type === 'Admin') {
-                    roleIcon = 'Assets/Admin-c.png';
-                    roleClass = 'admin-role';
-                } else if (partner.type === 'Partner') {
-                    roleIcon = 'Assets/Partner-c.png';
-                    roleClass = 'partner-role';
-                } else if (partner.type === 'Skip') {
-                    roleIcon = 'Assets/Skip.png';
-                    roleClass = 'normal-role';
-                } else {
-                    roleIcon = 'Assets/Partner-c.png'; // default
-                    roleClass = 'partner-role';
-                }
-                
-                // Apply the role class to the partnerDiv
-                partnerDiv.classList.add(roleClass);
-                
-                partnerDiv.innerHTML = `
-                    <span class="input-number">${index + 1}</span>
-                    <div class="selected-role-display" style="display: flex;">
-                        <span class="selected-role-text">${partner.name || 'Partner ' + (index + 1)}</span>
-                        <div class="role-icon-container">
-                            <img src="${roleIcon}" alt="${partner.type || 'Partner'}" class="role-icon">
-                            <img src="Assets/Remove.png" alt="Remove" class="remove-role-icon" onclick="removePartnerFromModal(${index})">
-                        </div>
-                    </div>
-                `;
-                
-                partnersList.appendChild(partnerDiv);
-            });
-        }
-        
-        function removePartner(index) {
-            let partners = JSON.parse(localStorage.getItem('selectedPartners') || '[]');
-            partners.splice(index, 1);
-            localStorage.setItem('selectedPartners', JSON.stringify(partners));
-            loadPartnersList();
-        }
-        
-        function removePartnerFromModal(index) {
-            // Remove from projectData.partners
-            if (projectData.partners && projectData.partners.length > index) {
-                projectData.partners.splice(index, 1);
-            }
-            
-            // Also remove from localStorage
-            let partners = JSON.parse(localStorage.getItem('selectedPartners') || '[]');
-            if (partners.length > index) {
-                partners.splice(index, 1);
-                localStorage.setItem('selectedPartners', JSON.stringify(partners));
-            }
-            
-            // Reload the partners list
-            loadPartnersList();
-            
-            // Update the partners section display if it exists
-            updatePartnersSectionDisplay();
-        }
-        
-        function updatePartnersSectionDisplay() {
-            // This function can be used to update the main partners section if needed
-            console.log('Partners updated:', projectData.partners);
-        }
-        
-        // Close modal when clicking outside
-        document.addEventListener('DOMContentLoaded', function() {
-            const modal = document.getElementById('partners-modal');
-            if (modal) {
-                modal.addEventListener('click', function(e) {
-                    if (e.target === this) {
-                        this.style.display = 'none';
-                    }
-                });
-            }
-        });
+        // Removed Select Partners modal and related functions
     </script>
 </body>
 </html>
