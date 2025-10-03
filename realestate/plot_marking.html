@@ -6,21 +6,6 @@
     <title>Plot Marking - Real Estate Website</title>
     <link rel="stylesheet" href="styles.css">
     <style>
-        body {
-            overflow-y: auto;
-            max-height: 100vh;
-        }
-        
-        .responsive-container {
-            overflow-y: auto;
-            max-height: calc(100vh - 150px);
-            padding-bottom: 100px;
-        }
-        
-        body {
-            padding-bottom: 80px;
-        }
-        
         /* Responsive styles for mobile devices */
         @media screen and (max-width: 768px) {
             .responsive-container {
@@ -195,7 +180,7 @@
         </div>
         
         <div style="position: absolute; top: 119px; left: 6px; width: 328px; height: 45px; flex-shrink: 0; border-radius: 15px; background: #FFF;">
-            <input type="text" id="plot-number-input" style="width: 100%; height: 100%; border: none; outline: none; background: transparent; font-family: Monaco; font-size: 16px; color: #000; padding: 0 15px; border-radius: 15px;" placeholder="Enter plot number..." readonly>
+            <input type="text" id="plot-number-input" name="plot-number" style="width: 100%; height: 100%; border: none; outline: none; background: transparent; font-family: Monaco; font-size: 16px; color: #000; padding: 0 15px; border-radius: 15px;" placeholder="Enter plot number..." readonly>
         </div>
         
         <div style="position: absolute; top: 174px; left: 6px; color: #FFF; font-family: Monaco; font-size: 14px; font-style: normal; font-weight: 400; line-height: normal;">
@@ -203,7 +188,7 @@
         </div>
         
         <div style="position: absolute; top: 203px; left: 6px; width: 328px; height: 45px; flex-shrink: 0; border-radius: 15px; background: #FFF;">
-            <input type="text" id="owner-name-input" style="width: 100%; height: 100%; border: none; outline: none; background: transparent; font-family: Monaco; font-size: 16px; color: #000; padding: 0 15px; border-radius: 15px;" placeholder="Enter owner's name...">
+            <input type="text" id="owner-name-input" name="owner-name" style="width: 100%; height: 100%; border: none; outline: none; background: transparent; font-family: Monaco; font-size: 16px; color: #000; padding: 0 15px; border-radius: 15px;" placeholder="Enter owner's name...">
         </div>
         
         <div style="position: absolute; top: 258px; left: 6px; color: #FFF; font-family: Monaco; font-size: 14px; font-style: normal; font-weight: 400; line-height: normal;">
@@ -211,7 +196,7 @@
         </div>
         
         <div style="position: absolute; top: 287px; left: 6px; width: 328px; height: 45px; flex-shrink: 0; border-radius: 15px; background: #FFF;">
-            <input type="text" id="plot-status-input" style="width: 100%; height: 100%; border: none; outline: none; background: transparent; font-family: Monaco; font-size: 16px; color: #000; padding: 0 15px; border-radius: 15px;" placeholder="Enter plot status...">
+            <input type="text" id="plot-status-input" name="plot-status" style="width: 100%; height: 100%; border: none; outline: none; background: transparent; font-family: Monaco; font-size: 16px; color: #000; padding: 0 15px; border-radius: 15px;" placeholder="Enter plot status...">
         </div>
         
         <div style="position: absolute; top: 342px; left: 6px; color: #FFF; font-family: Monaco; font-size: 14px; font-style: normal; font-weight: 400; line-height: normal;">
@@ -219,11 +204,11 @@
         </div>
         
         <div style="position: absolute; top: 371px; left: 6px; width: 328px; height: 45px; flex-shrink: 0; border-radius: 15px; background: #FFF;">
-            <input type="tel" id="phone-input" style="width: 100%; height: 100%; border: none; outline: none; background: transparent; font-family: Monaco; font-size: 16px; color: #000; padding: 0 15px; border-radius: 15px;" placeholder="Enter phone number...">
+            <input type="tel" id="phone-input" name="phone" style="width: 100%; height: 100%; border: none; outline: none; background: transparent; font-family: Monaco; font-size: 16px; color: #000; padding: 0 15px; border-radius: 15px;" placeholder="Enter phone number...">
         </div>
         
         <div style="position: absolute; top: 426px; left: 6px; width: 328px; height: 45px; flex-shrink: 0; border-radius: 15px; background: #FFF;">
-            <input type="email" id="email-input" style="width: 100%; height: 100%; border: none; outline: none; background: transparent; font-family: Monaco; font-size: 16px; color: #000; padding: 0 15px; border-radius: 15px;" placeholder="Enter email address...">
+            <input type="email" id="email-input" name="email" style="width: 100%; height: 100%; border: none; outline: none; background: transparent; font-family: Monaco; font-size: 16px; color: #000; padding: 0 15px; border-radius: 15px;" placeholder="Enter email address...">
         </div>
         
         <div style="position: absolute; top: 481px; left: 6px; color: #FFF; font-family: Monaco; font-size: 14px; font-style: normal; font-weight: 400; line-height: normal;">
@@ -231,7 +216,7 @@
         </div>
         
         <div style="position: absolute; top: 510px; left: 6px; width: 328px; height: 45px; flex-shrink: 0; border-radius: 15px; background: #FFF;">
-            <input type="text" id="notes-input" style="width: 100%; height: 100%; border: none; outline: none; background: transparent; font-family: Monaco; font-size: 16px; color: #000; padding: 0 15px; border-radius: 15px;" placeholder="Enter notes...">
+            <input type="text" id="notes-input" name="notes" style="width: 100%; height: 100%; border: none; outline: none; background: transparent; font-family: Monaco; font-size: 16px; color: #000; padding: 0 15px; border-radius: 15px;" placeholder="Enter notes...">
         </div>
     </div>
     

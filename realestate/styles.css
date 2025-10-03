@@ -17,8 +17,6 @@ body {
     color: #fff;
     background-color: #000000;
     overflow-x: hidden;
-    overflow-y: auto;
-    max-height: 100vh;
 }
 
 /* Header Styles */

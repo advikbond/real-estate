@@ -6,22 +6,6 @@
     <title>Site Data Entry - Real Estate Website</title>
     <link rel="stylesheet" href="styles.css">
     <style>
-        body {
-            overflow-y: auto;
-            max-height: 100vh;
-        }
-        
-        .responsive-container {
-            overflow-y: auto;
-            max-height: calc(100vh - 200px);
-        }
-        
-        #entries-container {
-            overflow-y: auto;
-            max-height: calc(100vh - 200px);
-            padding-bottom: 100px;
-        }
-        
         @media screen and (max-width: 768px) {
             .responsive-container { width: 90% !important; max-width: 342px; margin-left: auto !important; margin-right: auto !important; }
             .responsive-header-text { font-size: 18px !important; height: 45px !important; }
@@ -59,7 +43,7 @@
     <div class="responsive-container" id="entries-container" style="margin-top: 10px; display: flex; flex-direction: column; gap: 20px;">
         <div class="entry" data-index="1" style="display: flex; flex-direction: column; align-items: flex-start;">
             <div class="entry-box" style="margin-top: 5px; width: 319px; height: 75px; flex-shrink: 0; border-radius: 15px; border: 2px solid #F28482; background: rgba(242, 132, 130, 0.46); box-shadow: -4px -4px 4px 0 rgba(0, 0, 0, 0.25); position: relative;">
-                <input type="file" accept="image/*" style="display:none;" id="upload-input-1">
+                <input type="file" accept="image/*" style="display:none;" id="upload-input-1" name="upload-1">
                 <div class="right-icon" id="right-icon-1" style="position: absolute; right: 10px; top: 50%; transform: translateY(-50%); cursor: pointer;">
                     <svg xmlns="http://www.w3.org/2000/svg" width="30" height="25" viewBox="0 0 30 25" fill="none">
                       <path d="M9.67383 0.5H20.3271C20.4545 0.499954 20.5783 0.538721 20.6816 0.610352C20.7843 0.681617 20.8619 0.781879 20.9043 0.896484V0.897461L22.0293 4.01562L22.1484 4.3457H27.2227C28.4863 4.34593 29.5 5.35737 29.5 6.59375V22.2529C29.4999 23.4892 28.4862 24.4998 27.2227 24.5H2.77734C1.5138 24.4998 0.500099 23.4892 0.5 22.2529V6.59375L0.511719 6.36426C0.627797 5.23456 1.59278 4.34592 2.77734 4.3457H7.85059L7.96973 4.0166L9.09863 0.898438L9.09961 0.896484C9.18328 0.66333 9.41196 0.5 9.67383 0.5Z" stroke="white"/>
@@ -70,7 +54,7 @@
 
         <div class="entry" data-index="2" style="display: flex; flex-direction: column; align-items: flex-start;">
             <div class="entry-box" style="margin-top: 5px; width: 319px; height: 75px; flex-shrink: 0; border-radius: 15px; border: 2px solid #F28482; background: rgba(242, 132, 130, 0.46); box-shadow: -4px -4px 4px 0 rgba(0, 0, 0, 0.25); position: relative;">
-                <input type="file" accept="image/*" style="display:none;" id="upload-input-2">
+                <input type="file" accept="image/*" style="display:none;" id="upload-input-2" name="upload-2">
                 <div class="right-icon" id="right-icon-2" style="position: absolute; right: 10px; top: 50%; transform: translateY(-50%); cursor: pointer;">
                     <svg xmlns="http://www.w3.org/2000/svg" width="30" height="25" viewBox="0 0 30 25" fill="none">
                       <path d="M9.67383 0.5H20.3271C20.4545 0.499954 20.5783 0.538721 20.6816 0.610352C20.7843 0.681617 20.8619 0.781879 20.9043 0.896484V0.897461L22.0293 4.01562L22.1484 4.3457H27.2227C28.4863 4.34593 29.5 5.35737 29.5 6.59375V22.2529C29.4999 23.4892 28.4862 24.4998 27.2227 24.5H2.77734C1.5138 24.4998 0.500099 23.4892 0.5 22.2529V6.59375L0.511719 6.36426C0.627797 5.23456 1.59278 4.34592 2.77734 4.3457H7.85059L7.96973 4.0166L9.09863 0.898438L9.09961 0.896484C9.18328 0.66333 9.41196 0.5 9.67383 0.5Z" stroke="white"/>
@@ -81,7 +65,7 @@
 
         <div class="entry" data-index="3" style="display: flex; flex-direction: column; align-items: flex-start;">
             <div class="entry-box" style="margin-top: 5px; width: 319px; height: 75px; flex-shrink: 0; border-radius: 15px; border: 2px solid #F28482; background: rgba(242, 132, 130, 0.46); box-shadow: -4px -4px 4px 0 rgba(0, 0, 0, 0.25); position: relative;">
-                <input type="file" accept="image/*" style="display:none;" id="upload-input-3">
+                <input type="file" accept="image/*" style="display:none;" id="upload-input-3" name="upload-3">
                 <div class="right-icon" id="right-icon-3" style="position: absolute; right: 10px; top: 50%; transform: translateY(-50%); cursor: pointer;">
                     <svg xmlns="http://www.w3.org/2000/svg" width="30" height="25" viewBox="0 0 30 25" fill="none">
                       <path d="M9.67383 0.5H20.3271C20.4545 0.499954 20.5783 0.538721 20.6816 0.610352C20.7843 0.681617 20.8619 0.781879 20.9043 0.896484V0.897461L22.0293 4.01562L22.1484 4.3457H27.2227C28.4863 4.34593 29.5 5.35737 29.5 6.59375V22.2529C29.4999 23.4892 28.4862 24.4998 27.2227 24.5H2.77734C1.5138 24.4998 0.500099 23.4892 0.5 22.2529V6.59375L0.511719 6.36426C0.627797 5.23456 1.59278 4.34592 2.77734 4.3457H7.85059L7.96973 4.0166L9.09863 0.898438L9.09961 0.896484C9.18328 0.66333 9.41196 0.5 9.67383 0.5Z" stroke="white"/>
@@ -92,7 +76,7 @@
 
         <div class="entry" data-index="4" style="display: flex; flex-direction: column; align-items: flex-start;">
             <div class="entry-box" style="margin-top: 5px; width: 319px; height: 75px; flex-shrink: 0; border-radius: 15px; border: 2px solid #F28482; background: rgba(242, 132, 130, 0.46); box-shadow: -4px -4px 4px 0 rgba(0, 0, 0, 0.25); position: relative;">
-                <input type="file" accept="image/*" style="display:none;" id="upload-input-4">
+                <input type="file" accept="image/*" style="display:none;" id="upload-input-4" name="upload-4">
                 <div class="right-icon" id="right-icon-4" style="position: absolute; right: 10px; top: 50%; transform: translateY(-50%); cursor: pointer;">
                     <svg xmlns="http://www.w3.org/2000/svg" width="30" height="25" viewBox="0 0 30 25" fill="none">
                       <path d="M9.67383 0.5H20.3271C20.4545 0.499954 20.5783 0.538721 20.6816 0.610352C20.7843 0.681617 20.8619 0.781879 20.9043 0.896484V0.897461L22.0293 4.01562L22.1484 4.3457H27.2227C28.4863 4.34593 29.5 5.35737 29.5 6.59375V22.2529C29.4999 23.4892 28.4862 24.4998 27.2227 24.5H2.77734C1.5138 24.4998 0.500099 23.4892 0.5 22.2529V6.59375L0.511719 6.36426C0.627797 5.23456 1.59278 4.34592 2.77734 4.3457H7.85059L7.96973 4.0166L9.09863 0.898438L9.09961 0.896484C9.18328 0.66333 9.41196 0.5 9.67383 0.5Z" stroke="white"/>

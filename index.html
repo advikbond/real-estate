@@ -161,7 +161,7 @@
                 </div>
 
                 <!-- Project Name Input -->
-                <input type="text" id="project-name-input" class="project-name-input" placeholder="Enter Project Name">
+                <input type="text" id="project-name-input" name="project-name" class="project-name-input" placeholder="Enter Project Name">
 
                 <!-- Next Button -->
                 <button class="next-button">Next</button>
@@ -206,7 +206,7 @@
                     <!-- Input Box 1 - Name -->
                     <div class="input-box-wrapper name-wrapper" id="nameWrapper">
                         <span class="input-number">1</span>
-                        <input type="text" class="partner-input name-input" id="nameInput" placeholder="Enter the name">
+                        <input type="text" class="partner-input name-input" id="nameInput" name="partner-name" placeholder="Enter the name">
                         <!-- Selected Role Display (hidden by default) -->
                         <div class="selected-role-display" id="selectedRoleDisplay" style="display: none;">
                             <span class="selected-role-text" id="selectedRoleText"></span>
@@ -222,13 +222,13 @@
                     <!-- Input Box 2 - Contact Number -->
                     <div class="input-box-wrapper">
                             <span class="input-number invisible">1</span>
-                            <input type="text" class="partner-input small-input" placeholder="Contact number">
+                            <input type="text" class="partner-input small-input" name="partner-contact" placeholder="Contact number">
                     </div>
 
                         <!-- Input Box 3 - Email (Optional) -->
                     <div class="input-box-wrapper">
                             <span class="input-number invisible">1</span>
-                            <input type="email" class="partner-input small-input" placeholder="Email (optional)">
+                            <input type="email" class="partner-input small-input" name="partner-email" placeholder="Email (optional)">
                     </div>
 
                     <!-- Input Box 4 - Select Role -->
@@ -320,7 +320,7 @@
                     <!-- Input Box 1 - Brokerage Name -->
                     <div class="input-box-wrapper name-wrapper" id="brokerageNameWrapper">
                         <span class="input-number">1</span>
-                        <input type="text" class="partner-input name-input" id="brokerageNameInput" placeholder="Enter the Brokerage name">
+                        <input type="text" class="partner-input name-input" id="brokerageNameInput" name="brokerage-name" placeholder="Enter the Brokerage name">
                         <!-- Selected Brokerage Display (hidden by default) -->
                         <div class="selected-role-display" id="selectedBrokerageDisplay" style="display: none;">
                             <span class="selectedRoleText" id="selectedBrokerageText"></span>
@@ -336,13 +336,13 @@
                         <!-- Input Box 2 - Contact Number -->
                         <div class="input-box-wrapper">
                             <span class="input-number invisible">1</span>
-                            <input type="text" class="partner-input small-input" placeholder="Contact number">
+                            <input type="text" class="partner-input small-input" name="partner-contact" placeholder="Contact number">
                         </div>
 
                         <!-- Input Box 3 - Phone Number (Optional) -->
                         <div class="input-box-wrapper">
                             <span class="input-number invisible">1</span>
-                            <input type="email" class="partner-input small-input" placeholder="Email (optional)">
+                            <input type="email" class="partner-input small-input" name="partner-email" placeholder="Email (optional)">
                         </div>
                     </div>
                 </div>
@@ -404,7 +404,7 @@
                     <!-- Input Box 1 - Agent Name -->
                     <div class="input-box-wrapper name-wrapper" id="agentNameWrapper">
                         <span class="input-number">1</span>
-                        <input type="text" class="partner-input name-input" id="agentNameInput" placeholder="Enter the Agent name">
+                        <input type="text" class="partner-input name-input" id="agentNameInput" name="agent-name" placeholder="Enter the Agent name">
                         <!-- Selected Agent Display (hidden by default) -->
                         <div class="selected-role-display" id="selectedAgentDisplay" style="display: none;">
                             <span class="selectedRoleText" id="selectedAgentText"></span>
@@ -420,13 +420,13 @@
                         <!-- Input Box 2 - Contact Number -->
                         <div class="input-box-wrapper">
                             <span class="input-number invisible">1</span>
-                            <input type="text" class="partner-input small-input" placeholder="Contact number">
+                            <input type="text" class="partner-input small-input" name="partner-contact" placeholder="Contact number">
                         </div>
 
                         <!-- Input Box 3 - Phone Number (Optional) -->
                         <div class="input-box-wrapper">
                             <span class="input-number invisible">1</span>
-                            <input type="email" class="partner-input small-input" placeholder="Email (optional)">
+                            <input type="email" class="partner-input small-input" name="partner-email" placeholder="Email (optional)">
                         </div>
                     </div>
                 </div>
@@ -483,7 +483,7 @@
 
                 <!-- Photos Upload Container -->
                 <div class="upload-selection-container">
-                    <input type="file" id="photo-upload-input" accept="image/*" multiple style="display: none;" onchange="handlePhotoUpload(event)">
+                    <input type="file" id="photo-upload-input" name="photo-upload" accept="image/*" multiple style="display: none;" onchange="handlePhotoUpload(event)">
                     <div id="photos-upload-area" class="upload-area" onclick="selectUploadType('photos')">
                         <svg xmlns="http://www.w3.org/2000/svg" width="54" height="46" viewBox="0 0 54 46" fill="none">
                             <path d="M17.4121 0.5H36.5879C36.8977 0.499727 37.2005 0.595444 37.4541 0.773438C37.7068 0.950953 37.8988 1.20187 38.0039 1.49219V1.49316L40.0293 7.16797L40.1475 7.5H49C51.4864 7.5 53.5 9.51364 53.5 12V40.5C53.5 42.9864 51.4864 45 49 45H5C2.51364 45 0.5 42.9864 0.5 40.5V12C0.500001 9.51364 2.51364 7.5 5 7.5H13.8525L13.9707 7.16895L16.002 1.49316L16.0029 1.49219C16.2129 0.8996 16.7788 0.500164 17.4121 0.5Z" stroke="#E96B68"/>
@@ -503,7 +503,7 @@
 
                 <!-- Videos Upload Container -->
                 <div class="upload-selection-container">
-                    <input type="file" id="video-upload-input" accept="video/*" multiple style="display: none;" onchange="handleVideoUpload(event)">
+                    <input type="file" id="video-upload-input" name="video-upload" accept="video/*" multiple style="display: none;" onchange="handleVideoUpload(event)">
                     <div id="videos-upload-area" class="upload-area" onclick="selectUploadType('videos')">
                         <svg xmlns="http://www.w3.org/2000/svg" width="56" height="44" viewBox="0 0 56 44" fill="none">
                             <path d="M4 0.5H41C42.9301 0.5 44.5 2.06989 44.5 4V14.3652L45.249 13.9336L53.249 9.32715H53.25C54.2482 8.75073 55.5 9.47274 55.5 10.625V33.3809C55.5 34.5255 54.2494 35.2499 53.25 34.6729H53.249L45.249 30.0664L44.5 29.6348V40C44.5 41.9301 42.9301 43.5 41 43.5H4C2.06989 43.5 0.5 41.9301 0.5 40V4C0.5 2.06989 2.06989 0.5 4 0.5ZM51.25 14.5039L44.75 18.248L44.5 18.3926V25.6143L44.751 25.7588L51.251 29.4961L52 29.9268V14.0723L51.25 14.5039ZM9 8C8.44886 8 8 8.44886 8 9V12C8 12.5511 8.44886 13 9 13H16C16.5511 13 17 12.5511 17 12V9C17 8.44886 16.5511 8 16 8H9Z" stroke="#E96B68"/>
@@ -590,7 +590,7 @@
                     <span>Photo of the site layout</span>
                 </div>
                 
-                <input type="file" id="main-photo-upload-input" accept="image/*" multiple style="display: none;" onchange="handleMainPhotoUpload(event)">
+                <input type="file" id="main-photo-upload-input" name="main-photo-upload" accept="image/*" multiple style="display: none;" onchange="handleMainPhotoUpload(event)">
                 
                 <!-- Bottom Section with Save Button -->
                 <div class="upload-bottom-section" style="display: flex; justify-content: flex-end; align-items: center;">
@@ -1170,13 +1170,13 @@
                         <!-- Input Box - Contact Number -->
                         <div class="input-box-wrapper">
                             <span class="input-number invisible">1</span>
-                            <input type="text" class="partner-input small-input" placeholder="Contact number">
+                            <input type="text" class="partner-input small-input" name="partner-contact" placeholder="Contact number">
                         </div>
 
                         <!-- Input Box - Phone Number (Optional) -->
                         <div class="input-box-wrapper">
                             <span class="input-number invisible">1</span>
-                            <input type="email" class="partner-input small-input" placeholder="Email (optional)">
+                            <input type="email" class="partner-input small-input" name="partner-email" placeholder="Email (optional)">
                         </div>
 
                         <!-- Input Box - Select Role -->
@@ -1380,13 +1380,13 @@
                         <!-- Input Box - Contact Number -->
                         <div class="input-box-wrapper">
                             <span class="input-number invisible">1</span>
-                            <input type="text" class="partner-input small-input" placeholder="Contact number">
+                            <input type="text" class="partner-input small-input" name="partner-contact" placeholder="Contact number">
                         </div>
 
                         <!-- Input Box - Phone Number (Optional) -->
                         <div class="input-box-wrapper">
                             <span class="input-number invisible">1</span>
-                            <input type="email" class="partner-input small-input" placeholder="Email (optional)">
+                            <input type="email" class="partner-input small-input" name="partner-email" placeholder="Email (optional)">
                         </div>
                     </div>
                 </div>
@@ -1615,13 +1615,13 @@
                         <!-- Input Box - Contact Number -->
                         <div class="input-box-wrapper">
                             <span class="input-number invisible">1</span>
-                            <input type="text" class="partner-input small-input" placeholder="Contact number">
+                            <input type="text" class="partner-input small-input" name="partner-contact" placeholder="Contact number">
                         </div>
 
                         <!-- Input Box - Phone Number (Optional) -->
                         <div class="input-box-wrapper">
                             <span class="input-number invisible">1</span>
-                            <input type="email" class="partner-input small-input" placeholder="Email (optional)">
+                            <input type="email" class="partner-input small-input" name="partner-email" placeholder="Email (optional)">
                         </div>
                     </div>
                 </div>

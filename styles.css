@@ -13,20 +13,16 @@ body {
     font-family: Arial, sans-serif;
     background-color: white;
     overflow-x: hidden;
-    overflow-y: auto;
-    max-height: 100vh;
 }
 
 .container {
     width: 412px;
-    min-height: 917px;
+    height: 917px;
     margin: 0 auto;
     background-color: white;
     position: relative;
     display: flex;
     flex-direction: column;
-    overflow-y: auto;
-    max-height: 100vh;
 }
 
 /* Header */
@@ -52,7 +48,7 @@ body {
 /* Main Content */
 .main-content {
     flex: 1;
-    padding: 51px 0 100px 0; /* Account for fixed header and footer, plus extra space for buttons */
+    padding: 51px 0 51px 0; /* Account for fixed header and footer */
     background-color: white;
     display: flex;
     flex-direction: column;
@@ -61,8 +57,6 @@ body {
     width: 100%;
     max-width: 412px;
     margin: 0 auto;
-    overflow-y: auto;
-    max-height: calc(100vh - 102px);
 }
 
 /* Your Profiles Title */
@@ -74,21 +68,6 @@ body {
     margin-top: 41px;
     margin-bottom: 40px;
     text-align: center;
-}
-
-/* Bottom sections with buttons - ensure they're always visible */
-.photos-videos-bottom-section,
-.upload-bottom-section,
-.new-project-main-content {
-    margin-bottom: 20px;
-    padding-bottom: 20px;
-}
-
-/* Next buttons spacing */
-.next-button,
-.next-selection-button,
-.skip-selection-button {
-    margin-bottom: 20px;
 }
 
 /* Button Grid */
