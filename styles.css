@@ -52,7 +52,7 @@ body {
 /* Main Content */
 .main-content {
     flex: 1;
-    padding: 51px 0 51px 0; /* Account for fixed header and footer */
+    padding: 51px 0 100px 0; /* Account for fixed header and footer, plus extra space for buttons */
     background-color: white;
     display: flex;
     flex-direction: column;
@@ -74,6 +74,21 @@ body {
     margin-top: 41px;
     margin-bottom: 40px;
     text-align: center;
+}
+
+/* Bottom sections with buttons - ensure they're always visible */
+.photos-videos-bottom-section,
+.upload-bottom-section,
+.new-project-main-content {
+    margin-bottom: 20px;
+    padding-bottom: 20px;
+}
+
+/* Next buttons spacing */
+.next-button,
+.next-selection-button,
+.skip-selection-button {
+    margin-bottom: 20px;
 }
 
 /* Button Grid */
