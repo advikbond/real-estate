@@ -79,6 +79,18 @@ async function initializeDatabase() {
 
 // API Routes
 
+// Root route
+app.get('/', (req, res) => {
+    res.json({ 
+        message: 'Real Estate Backend API is running!',
+        endpoints: {
+            health: '/api/health',
+            projects: '/api/projects',
+            createProject: 'POST /api/projects'
+        }
+    });
+});
+
 // Create new project
 app.post('/api/projects', async (req, res) => {
     try {

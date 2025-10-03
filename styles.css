@@ -13,16 +13,20 @@ body {
     font-family: Arial, sans-serif;
     background-color: white;
     overflow-x: hidden;
+    overflow-y: auto;
+    max-height: 100vh;
 }
 
 .container {
     width: 412px;
-    height: 917px;
+    min-height: 917px;
     margin: 0 auto;
     background-color: white;
     position: relative;
     display: flex;
     flex-direction: column;
+    overflow-y: auto;
+    max-height: 100vh;
 }
 
 /* Header */
@@ -57,6 +61,8 @@ body {
     width: 100%;
     max-width: 412px;
     margin: 0 auto;
+    overflow-y: auto;
+    max-height: calc(100vh - 102px);
 }
 
 /* Your Profiles Title */
